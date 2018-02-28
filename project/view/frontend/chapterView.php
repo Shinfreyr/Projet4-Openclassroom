@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php $title = "Jean Forteroche, Billet simple pour l'Alaska"; ?>
+<?php $title = "Les Episodes, Billet simple pour l'Alaska"; ?>
 <?php ob_start(); ?>
 
 <!-- Navigation Menu +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -37,7 +37,8 @@
     </nav>
 </div>
 
-    <h1>Billet simple pour l'Alaska</h1>
+<!-- Titre +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<h1>Les Episodes</h1>
 
 <?php
     //Content Index +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
