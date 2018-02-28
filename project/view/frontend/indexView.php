@@ -47,7 +47,7 @@
     <!-- Title Index Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <h1>Billet simple pour l'Alaska</h1>
 
-    <div class="container-fluid raw">    
+    <div class="lastChapter container-fluid raw">    
         <h2 class="col-12">Dernier Episode :</h2>
 
         <?php
@@ -55,10 +55,10 @@
             
             // Last chapter view ++++++++++++++++++++++++++++++
             while ($db = $request->fetch()){
-                echo '<h3 class="col-12" ><img class="col-12 col-md-2" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" />' 
-                . htmlspecialchars($db['titlePost']) . ' : ' 
-                . htmlspecialchars($db['datePost']) 
-                .'<a class="chapterLink" href="index.php?action=post&billet='. htmlspecialchars($db['idPost']) .'">Voir l\'Episode</a></h3>';
+                echo '<img class="col-12 col-md-2" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" />' 
+                . '<h3 class="col-12 col-md-6 align-self-center">' .htmlspecialchars($db['titlePost']) . ' : ' 
+                . htmlspecialchars($db['datePost']) . '</h3>'
+                .'<a class="chapterLink col-12 col-md-4 align-self-center" href="index.php?action=post&billet='. htmlspecialchars($db['idPost']) .'">Voir l\'Episode</a>';
             }
         ?>
     </div>
