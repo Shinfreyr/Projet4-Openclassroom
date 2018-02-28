@@ -23,8 +23,8 @@
         <meta name="twitter:image" content="" /> <!-- !!!!!!!!!!!!!!!!!!!!! A remplir lors de la MeL -->
         <!-- Stylesheet Bootstrap v4 ++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <!-- Stylesheet Google Font Indie+Flower ++++++++++++++++++++++++++++++++++++ -->
-        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
+        <!-- Stylesheet Google Font Indie+Flower and Kaushan+Script +++++++++++++++++ -->
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Kaushan+Script" rel="stylesheet"> 
         <!-- Stylesheet +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <link href="project/public/css/style.css" rel="stylesheet" /> 
 

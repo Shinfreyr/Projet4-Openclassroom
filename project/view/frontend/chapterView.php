@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<?php $title = "Jean Forteroche, Billet simple pour l'Alaska"; ?>
+<?php $title = "Les Episodes, Billet simple pour l'Alaska"; ?>
 <?php ob_start(); ?>
 
 <!-- Navigation Menu +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<div class="container-fluid sticky-top">  
-    <nav class="navbar navbar-expand-lg navbar-light bg-light row">
+<div class="container-fluid">  
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light row">
         <!-- Autor Name ++++++++++++++++++++++++++++++++++++++++++++++ -->
         <a class="navbar-brand col-6 align-sel-start" href="index.php">Jean Forteroche</a>
         <!-- Burger Menu +++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -32,7 +32,7 @@
                         <a class="dropdown-item" href="#">Gestion de Compte</a>
                     </div>
                 </li>
-                <!-- Welcome account ++++++++++++++++++++++++++++++++++++++++++++ -->
+                <!-- Welcome Account ++++++++++++++++++++++++++++++++++++++ -->
                 <?php
                     if(false){     
                         echo    '<li class="nav-item">
@@ -44,26 +44,12 @@
         </div>
     </nav>
 </div>
-    <!-- Title Index Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <h1>Billet simple pour l'Alaska</h1>
 
-    <div class="container-fluid raw">    
-        <h2 class="col-12">Dernier Episode :</h2>
-
-        <?php
-            //Content Index +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-            
-            // Last chapter view ++++++++++++++++++++++++++++++
-            while ($db = $request->fetch()){
-                echo '<h3 class="col-12" ><img class="col-12 col-md-2" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" />' 
-                . htmlspecialchars($db['titlePost']) . ' : ' 
-                . htmlspecialchars($db['datePost']) 
-                .'<a class="chapterLink" href="index.php?action=post&billet='. htmlspecialchars($db['idPost']) .'">Voir l\'Episode</a></h3>';
-            }
-        ?>
-    </div>
+<!-- Titre +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<h1>Les Episodes</h1>
 
 <?php
+    //Content Index +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
     $content = ob_get_clean();
     require('template.php'); 
