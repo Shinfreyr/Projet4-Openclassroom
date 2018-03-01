@@ -20,4 +20,14 @@
             $request = $db->query('SELECT idPost, titlePost, contentPost, imagePost, datePost, postStatue, idAccount FROM posts ORDER BY idPost');
             return $request;
         }
+
+        // Chapter Target function
+        function getPost(){
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Chapters  Target recuperation 
+            $request = $db->prepare('SELECT idPost, titlePost, contentPost, imagePost, datePost, postStatue, idAccount FROM posts WHERE idPost=?');
+            $request -> execute(array($_GET['idChapter']));
+            return $request;
+        }
     }

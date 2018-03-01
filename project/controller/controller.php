@@ -10,10 +10,18 @@
         require('project/view/frontend/indexView.php');
     }
 
-    // Chapter View
+    // All Chapter View
     function chapter(){
         $postManager= new PostManager();
         $request= $postManager->getPosts();
 
         require('project/view/frontend/chapterView.php');
+    }
+
+    // Chapter Target View
+    function post(){
+        $postManager= new PostManager();
+        $request= $postManager->getPost();
+
+        require('project/view/frontend/postTargetView.php');
     }
