@@ -6,7 +6,7 @@
     <!-- Title Index Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <h1>Billet simple pour l'Alaska</h1>
 
-    <!-- Div Jean Forteroche Info ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <!-- Div Billet simple pourl'Alaska Info ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <div class="infoAlaska container-fluid raw">
         <h2 class="col-12">Le voyage d'une vie :</h2>
         <img class="infoImg col-12 col-md-5" src="project/public/images/billetSimple.jpg" />
