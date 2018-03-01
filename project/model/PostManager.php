@@ -2,14 +2,22 @@
     require_once("project/model/Manager.php");
 
     class PostManager extends Manager{
+        
         // Last Chapter function
         function getRecentPost(){
             // Data Base Connection
             $db=$this->dbConnect();
-
-            // Last Chapter recuperation
+            // Last Chapters recuperation (5)
             $request = $db->query('SELECT idPost, titlePost, contentPost, imagePost, datePost, postStatue, idAccount FROM posts ORDER BY idPost DESC LIMIT 0, 5');
-    
+            return $request;
+        }
+
+        // All Chapter function
+        function getPosts(){
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // All Chapters recuperation 
+            $request = $db->query('SELECT idPost, titlePost, contentPost, imagePost, datePost, postStatue, idAccount FROM posts ORDER BY idPost');
             return $request;
         }
     }

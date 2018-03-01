@@ -1,6 +1,7 @@
 /* Body +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 body{
     background-image: url("../images/alaska_glacier.jpg");
+    background-attachment:fixed;
     background-repeat: no-repeat;
     background-position: -1000px -500px;
 }
@@ -13,30 +14,48 @@ body{
 /* Titres ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 h1{
     background-color: rgba(255, 255, 255, 0.8);
-    margin: 200px 0;
+    margin: 500px 0;
     text-align: center;
     font-family: 'Indie Flower', cursive;
     font-size: 5em;
 }
 
 h2{
-    background-color: rgba(255, 255, 255, 0.8);
     margin: 0;
     font-family: 'Indie Flower', cursive;
     font-size: 3em; 
 }
 
 h3{
-    background-color: rgba(255, 255, 255, 0.8);
     margin: 0;
     font-family: 'Kaushan Script', cursive;
     font-size: 2em
 }
 
+/* Last Chapter indexView + All Chapter chapterView +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.infoImg{
+    border-radius: 50%;
+}
+
+.lastChapter, .infoAlaska, .allChapters{
+    display:flex;
+    margin: 200px 0;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.9);
+    justify-content: center;
+}
+
 .chapterLink{
-    margin: 0 5%;
-    padding: 0 20px;
-    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 20px 20px;
     font-family: 'Kaushan Script', cursive;
     font-size: 1.5em;
 }
+
+.info{
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    padding: 20px 20px;
+}
+
+

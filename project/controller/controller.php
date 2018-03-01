@@ -12,5 +12,8 @@
 
     // Chapter View
     function chapter(){
+        $postManager= new PostManager();
+        $request= $postManager->getPosts();
+
         require('project/view/frontend/chapterView.php');
     }
