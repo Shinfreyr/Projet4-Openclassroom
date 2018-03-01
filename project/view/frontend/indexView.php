@@ -2,63 +2,32 @@
 <?php $title = "Jean Forteroche, Billet simple pour l'Alaska"; ?>
 <?php ob_start(); ?>
 
-<!-- Navigation Menu +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-<div class="container-fluid sticky-top">  
-    <nav class="navbar navbar-expand-lg navbar-light bg-light row">
-        <!-- Autor Name ++++++++++++++++++++++++++++++++++++++++++++++ -->
-        <a class="navbar-brand col-6 align-sel-start" href="index.php">Jean Forteroche</a>
-        <!-- Burger Menu +++++++++++++++++++++++++++++++++++++++++++++ -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- Inside Burger ++++++++++++++++++++++++++++++++++++++++++ -->
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-            <ul class="navbar-nav col align-self-end mr-auto">
-                <!-- Home ++++++++++++++++++++++++++++++++++++++++++ -->
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php">Home </a>
-                </li>
-                <!-- Chapters ++++++++++++++++++++++++++++++++++++++ -->
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=chapter">Voir les Episodes</a>
-                </li>
-                <!-- Connection/Inscription Menu ++++++++++++++++++++++++++++++++ -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connexion/Inscription</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Connexion</a>
-                        <a class="dropdown-item" href="#">Inscription</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Gestion de Compte</a>
-                    </div>
-                </li>
-                <!-- Welcome account ++++++++++++++++++++++++++++++++++++++++++++ -->
-                <?php
-                    if(false){     
-                        echo    '<li class="nav-item">
-                                    <a class="nav-link" href="index.php?action=chapter">Welcome!</a>
-                                </li>';
-                    }
-                ?>
-            </ul>
-        </div>
-    </nav>
-</div>
+
     <!-- Title Index Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <h1>Billet simple pour l'Alaska</h1>
 
-    <div class="container-fluid raw">    
-        <h2 class="col-12">Dernier Episode :</h2>
+    <!-- Div Jean Forteroche Info ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <div class="infoAlaska container-fluid raw">
+        <h2 class="col-12">Le voyage d'une vie :</h2>
+        <img class="infoImg col-12 col-md-5" src="project/public/images/billetSimple.jpg" />
+        <h3 class="info col-12">
+            Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+            Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+        </h3>
+    </div>
+
+    <!-- Div Last Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <div class="lastChapter container-fluid raw">    
+        <h2 class="col-12">Derniers Episodes :</h2>
 
         <?php
-            //Content Index +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
             
-            // Last chapter view ++++++++++++++++++++++++++++++
+            // Last chapters view ++++++++++++++++++++++++++++++
             while ($db = $request->fetch()){
-                echo '<h3 class="col-12" ><img class="col-12 col-md-2" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" />' 
-                . htmlspecialchars($db['titlePost']) . ' : ' 
-                . htmlspecialchars($db['datePost']) 
-                .'<a class="chapterLink" href="index.php?action=post&billet='. htmlspecialchars($db['idPost']) .'">Voir l\'Episode</a></h3>';
+                echo '<img class="col-12 col-md-2" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" />' 
+                . '<h3 class="col-12 col-md-6 align-self-center">' .htmlspecialchars($db['titlePost']) . ' : ' 
+                . htmlspecialchars($db['datePost']) . '</h3>'
+                .'<a class="chapterLink col-12 col-md-4 align-self-center" href="index.php?action=post&billet='. htmlspecialchars($db['idPost']) .'">Voir l\'Episode</a>';
             }
         ?>
     </div>
