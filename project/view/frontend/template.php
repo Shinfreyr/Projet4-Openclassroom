@@ -80,9 +80,7 @@
         <?= $content ?>
 
         <footer class="container-fluid raw">
-            <p>footer</p>
-            <p>footer</p>
-            <p>footer</p>
+            <p>Site Fictif développé par François-Hugues LAMODIERE</p>
         </footer>
 
         <!-- Script Bootstrap V4 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
