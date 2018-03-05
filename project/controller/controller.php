@@ -29,3 +29,13 @@
 
         require('project/view/frontend/postTargetView.php');
     }
+
+    // Inscription View
+    function inscription(){
+        require('project/view/frontend/inscriptionView.php');
+    }
+
+    // Inscription Account in Data Base
+    function inscriptionDb(){
+        
+    }

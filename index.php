@@ -1,4 +1,7 @@
 <?php
+    //Session Start +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    session_start();
+    
     //Require Controller ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     require('project/controller/controller.php');
 
@@ -17,10 +20,21 @@
             
         }
 
+        elseif(isset($_GET['action']) && isset($_GET['db'])) {
+            //Data Base Inscription +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            if($_GET['action'] == 'inscription' && $_GET['db'] == 'ok') {
+                inscriptionDb();
+            } 
+        }
+
         elseif(isset($_GET['action'])){
             //Chapters Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             if($_GET['action'] == 'chapter'){
                 chapter();
+            }
+            //Inscription Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] == 'inscription'){
+                inscription();
             }
         }
 
