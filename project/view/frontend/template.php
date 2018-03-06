@@ -61,12 +61,12 @@
                                 <a class="dropdown-item" href="index.php?action=connection">Connexion</a>
                                 <a class="dropdown-item" href="index.php?action=inscription">Inscription</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Gestion de Compte</a>
+                                <a class="dropdown-item" href="#">Déconnexion</a>
                             </div>
                         </li>
                         <!-- Welcome Account ++++++++++++++++++++++++++++++++++++++ -->
                         <?php
-                            if(false){     
+                            if(isset($_SESSION)){     
                                 echo    '<li class="nav-item">
                                             <a class="nav-link" href="index.php?action=chapter">Welcome!</a>
                                         </li>';

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php $title = "Inscription, Billet simple pour l'Alaska"; ?>
+<?php $title = "Inscription Réussie, Billet simple pour l'Alaska"; ?>
 <?php ob_start(); ?>
 
 <!-- Title ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->

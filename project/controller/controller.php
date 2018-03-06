@@ -42,3 +42,31 @@
         $request = $accountManager->postInscriptionDb();
         require('project/view/frontend/inscriptionReadyView.php');
     }
+
+    // Connection View
+    function connection(){
+        require('project/view/frontend/connectionView.php');
+    }
+
+    // Connection Account Data Base
+    function connectionDb(){
+        $password = $_POST['passwordConnect'];
+        $email = $_POST['emailConnect'];
+        $accountManager = new AccountManager();
+        $request = $accountManager->postConnectionDb();
+        $result = $request->fetch();
+        // Password Verify
+        $resultVerify = password_verify($password,$result['pass']);
+        // Control and Session creation
+        if($resultVerify) {
+            $_SESSION['id'] = $result['idAccount'];
+            $_SESSION['pseudo'] = $result['pseudo'];
+        }
+        // Error
+        else{
+            throw new Exception('Le mot de passe ne correspond pas');
+        }
+        require('project/view/frontend/indexView.php');
+
+        
+    }

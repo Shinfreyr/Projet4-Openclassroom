@@ -37,6 +37,17 @@
                     throw new Exception('Champs Obligatoire Manquant');
                 }
             }
+            //Data Base Connection
+            elseif($_GET['action'] == 'connection' && $_GET['db'] == 'ok') {
+                if($_POST['emailConnect'] != "" && $_POST['passwordConnect'] != "" ) {
+                    connectionDb();
+                }
+                //Error
+                else {
+                    throw new Exception('Erreur lors du remplissage d\'un champs');
+                }
+            }
+            
             //Error
             else {
                 throw new Exception('Erreur de redirection');
@@ -51,6 +62,10 @@
             //Inscription Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             elseif($_GET['action'] == 'inscription'){
                 inscription();
+            }
+            //Connection Page +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] == 'connection'){
+                connection();
             }
         }
 
