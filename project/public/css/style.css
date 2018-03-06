@@ -107,6 +107,16 @@ h3{
     color: red;
 }
 
+/* Inscription Form ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+#inscriptionForm{
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+label{
+    font-family: 'Kaushan Script', cursive;
+}
+
 
 /* Footer ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 footer{
@@ -116,6 +126,6 @@ footer{
     text-align: center;
 }
 
-footer p{
+footer p{    
     margin:0;
 }

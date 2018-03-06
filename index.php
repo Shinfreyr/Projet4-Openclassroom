@@ -23,8 +23,24 @@
         elseif(isset($_GET['action']) && isset($_GET['db'])) {
             //Data Base Inscription +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             if($_GET['action'] == 'inscription' && $_GET['db'] == 'ok') {
-                inscriptionDb();
-            } 
+                if($_POST['pseudo'] != "" && $_POST['email'] != "" && $_POST['password'] != "" && $_POST['passwordComp'] != "" && $_POST['checkHuman']) {
+                    if($_POST['password'] == $_POST['passwordComp'] && $_POST['checkHuman'] == "ok" && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                        inscriptionDb();
+                    }
+                    //Error
+                    else {
+                        throw new Exception('Champs Mot de Passe ou Email incorect');
+                    }
+                }
+                //Error
+                else {
+                    throw new Exception('Champs Obligatoire Manquant');
+                }
+            }
+            //Error
+            else {
+                throw new Exception('Erreur de redirection');
+            }
         }
 
         elseif(isset($_GET['action'])){

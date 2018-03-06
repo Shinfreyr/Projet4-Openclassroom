@@ -2,6 +2,7 @@
     // Require Model ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     require('project/model/PostManager.php');
     require('project/model/CommentManager.php');
+    require('project/model/AccountManager.php');
     // Function +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Index View
     function index(){
@@ -37,5 +38,7 @@
 
     // Inscription Account in Data Base
     function inscriptionDb(){
-        
+        $accountManager = new AccountManager();
+        $request = $accountManager->postInscriptionDb();
+        require('project/view/frontend/inscriptionReadyView.php');
     }
