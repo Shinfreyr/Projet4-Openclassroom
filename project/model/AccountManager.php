@@ -14,6 +14,17 @@
             return $request;           
         }
 
+        //Data Base Account Control
+        function controlInscription(){
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // All Chapters recuperation 
+            $request = $db->prepare('SELECT pseudo, eMail FROM account WHERE pseudo=? OR eMail=?');
+            $request -> execute(array($_POST['pseudo'], $_POST['email']));
+            return $request;
+
+        }
+
         //Data Base Connection Account
         function postConnectionDb(){
             //Password and Email

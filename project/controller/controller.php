@@ -38,9 +38,21 @@
 
     // Inscription Account in Data Base
     function inscriptionDb(){
-        $accountManager = new AccountManager();
-        $request = $accountManager->postInscriptionDb();
-        require('project/view/frontend/inscriptionReadyView.php');
+        //control pseudo & email Data Base
+        $pseudo = $_POST['pseudo'];
+        $email = $_POST['email'];
+        $accountManagerControl = new AccountManager();
+        $request= $accountManagerControl->controlInscription();
+        $result = $request->fetch();
+        if($result['pseudo'] == $pseudo || $result['eMail'] == $email){
+            throw new Exception('Pseudo ou Email déja existant');
+        }        
+        // Insert Data Base
+        else{
+            $accountManager = new AccountManager();
+            $request = $accountManager->postInscriptionDb();
+            require('project/view/frontend/inscriptionReadyView.php');
+        }
     }
 
     // Connection View
