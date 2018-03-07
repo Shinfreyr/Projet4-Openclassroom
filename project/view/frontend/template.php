@@ -61,14 +61,14 @@
                                 <a class="dropdown-item" href="index.php?action=connection">Connexion</a>
                                 <a class="dropdown-item" href="index.php?action=inscription">Inscription</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Déconnexion</a>
+                                <a class="dropdown-item" href="index.php?action=unconnection">Déconnexion</a>
                             </div>
                         </li>
                         <!-- Welcome Account ++++++++++++++++++++++++++++++++++++++ -->
                         <?php
-                            if(isset($_SESSION)){     
+                            if(isset($_SESSION['pseudo'])){     
                                 echo    '<li class="nav-item">
-                                            <a class="nav-link" href="index.php?action=chapter">Welcome!</a>
+                                            <a class="navbar-brand" href="index.php?action=account"><img width="30" height="30" alt="" src="project/public/images/' . $_SESSION['avatar'] . '" /> Bonjours ' .  $_SESSION['pseudo'] . '!</a>
                                         </li>';
                             }
                         ?>

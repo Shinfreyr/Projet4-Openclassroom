@@ -61,12 +61,18 @@
         if($resultVerify) {
             $_SESSION['id'] = $result['idAccount'];
             $_SESSION['pseudo'] = $result['pseudo'];
+            $_SESSION['avatar'] = $result['avatar'];
+            $_SESSION['pass'] = $result['pass'];
         }
         // Error
         else{
             throw new Exception('Le mot de passe ne correspond pas');
         }
-        require('project/view/frontend/indexView.php');
+        require('project/view/frontend/indexView.php');        
+    }
 
-        
+    //Unconection Session
+    function unconnection(){
+        session_destroy();
+        require('project/view/frontend/unconnectView.php');
     }

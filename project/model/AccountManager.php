@@ -22,26 +22,9 @@
             // Data Base Connection
             $db=$this->dbConnect();
             // Account Recuperation 
-            $request = $db->prepare('SELECT idAccount, pseudo, pass FROM account WHERE eMail= ? ');
+            $request = $db->prepare('SELECT * FROM account WHERE eMail= ? ');
             $request -> execute(array($email));
-            return $request;
-            /*
-            $result = $request->fetch();
-            // Password Verify
-            $resultVerify = password_verify($password,$result['pass']);
-            // Control and Session creation
-            if($resultVerify) {
-                $_SESSION['id'] = $result['idAccount'];
-                $_SESSION['pseudo'] = $result['pseudo'];
-            }
-            // Error
-            else{
-                throw new Exception('Le mot de passe ne correspond pas');
-            }
-            
-            
-            */
-            
+            return $request;           
         }
 
 
