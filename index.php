@@ -81,5 +81,6 @@
     
     //If error, echo message ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     catch(Exception $e){
-        echo 'Erreur : '. $e->getMessage();
+        echo '<h3 class="error">Erreur : '. $e->getMessage() .'</h3>';
+        index();       
     }
