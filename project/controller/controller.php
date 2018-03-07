@@ -74,7 +74,7 @@
             $_SESSION['id'] = $result['idAccount'];
             $_SESSION['pseudo'] = $result['pseudo'];
             $_SESSION['avatar'] = $result['avatar'];
-            $_SESSION['pass'] = $result['pass'];
+            $_SESSION['email'] = $result['eMail'];
         }
         // Error
         else{
@@ -91,5 +91,7 @@
 
     //Account Management View
     function accountManagement(){
+        $accountManager = new AccountManager();
+        $request = $accountManager->postAccountManagement();
         require('project/view/frontend/accountManagementView.php');
     }

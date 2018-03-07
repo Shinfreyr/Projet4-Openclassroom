@@ -27,8 +27,7 @@
 
         //Data Base Connection Account
         function postConnectionDb(){
-            //Password and Email
-            $password = $_POST['passwordConnect'];
+            //Email
             $email = $_POST['emailConnect'];
             // Data Base Connection
             $db=$this->dbConnect();
@@ -36,6 +35,18 @@
             $request = $db->prepare('SELECT * FROM account WHERE eMail= ? ');
             $request -> execute(array($email));
             return $request;           
+        }
+
+        //Data Base Account Management
+        function postAccountManagement(){
+            //Email
+            $email = $_SESSION['email'];
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Recuperation 
+            $request = $db->prepare('SELECT pseudo, firstName, lastName, eMail, avatar FROM account WHERE eMail= ? ');
+            $request -> execute(array($email));
+            return $request;
         }
 
 
