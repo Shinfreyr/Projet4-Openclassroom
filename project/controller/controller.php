@@ -74,5 +74,10 @@
     //Unconection Session
     function unconnection(){
         session_destroy();
-        require('project/view/frontend/unconnectView.php');
+        header("Refresh:0; index.php");
+    }
+
+    //Account Management View
+    function accountManagement(){
+        require('project/view/frontend/accountManagementView.php');
     }
