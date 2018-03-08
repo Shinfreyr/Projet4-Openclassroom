@@ -95,3 +95,10 @@
         $request = $accountManager->postAccountManagement();
         require('project/view/frontend/accountManagementView.php');
     }
+
+    //Comment Warning increment
+    function alertComment(){
+        $commentManager = new CommentManager();
+        $request = $commentManager->warningComment();
+        require('project/view/frontend/indexView.php');
+    }

@@ -22,16 +22,9 @@
         . '<span class="col-7">' . htmlspecialchars($dbCom['pseudo']) . '</span>' 
         . '<span class="date col-3">' . htmlspecialchars($dbCom['dateComment']) . '</span></h3>' 
         . '<p class="commentContent">'. htmlspecialchars($dbCom['contentComment']) . '</p>' 
-        . '<a class="alert" href="#">&Delta;Signaler</a>'
+        . '<a class="alert" href="index.php?action=alert&idComment='.htmlspecialchars($dbCom['idComments']).'">&Delta;Signaler</a>'
         . '</div>';
     }
-
-
-
-
-
-
-
 
 
     //Content Index +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 

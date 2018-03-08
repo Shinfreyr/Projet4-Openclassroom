@@ -54,6 +54,13 @@
             }
         }
 
+        elseif(isset($_GET['action']) && isset($_GET['idComment'])){
+            //Comment Warning
+            if($_GET['action'] == 'alert'){
+                alertComment();
+            }
+        }
+
         elseif(isset($_GET['action'])){
             //Chapters Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             if($_GET['action'] == 'chapter'){
@@ -75,6 +82,7 @@
             elseif($_GET['action'] == 'account'){
                 accountManagement();
             }
+            
         }
 
         //Index Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
