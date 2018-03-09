@@ -82,6 +82,10 @@
             elseif($_GET['action'] == 'account'){
                 accountManagement();
             }
+            //Account Management Avatar Upload ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] == 'upload'){
+                avatarUpload();
+            }
             
         }
 

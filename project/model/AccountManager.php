@@ -49,5 +49,15 @@
             return $request;
         }
 
+        //Data Base Avatar Account Management
+        function postAvatar($nameImage){
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Recuperation 
+            $request = $db->prepare('UPDATE account SET avatar = ? WHERE idAccount = ?');
+            $request -> execute(array($nameImage, $_SESSION['id']));
+            return $request;
+        }
+
 
     }

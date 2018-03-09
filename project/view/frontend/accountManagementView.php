@@ -10,7 +10,17 @@
     while ($db = $request->fetch()) {
         echo    '<div class="accountManagement">
                     <img src="project/public/images/' . htmlspecialchars($db['avatar']) . '" />
-                    <button type="button" class="btn btn-info btn-lg btn-block">Modifier</button>
+                    <form enctype="multipart/form-data" action="index.php?action=upload" method="post" class="col-12">
+                        <fieldset>
+                            <legend><h2>Avatar: <span class="infoAvatar"> (800x800 pixel & 1Mo maximum) </span></h2></legend>
+                            <p>
+                                <label for="uploadFile" title="Recherchez le fichier à uploader !">Envoyer le fichier :</label>
+                                <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" />
+                                <input name="file" type="file" id="uploadFile" />
+                                <input type="submit" class="btn btn-info" name="submit" value="Uploader" />
+                            </p>
+                        </fieldset>
+                    </form>
                     <h2 class="accountPseudo" >Pseudo: ' . htmlspecialchars($db['pseudo']) . '</h2>
                     <button type="button" class="btn btn-info btn-lg btn-block">Modifier</button>
                     <h2 class="accountPseudo" >Prénom: ' . htmlspecialchars($db['firstName']) . '</h2>

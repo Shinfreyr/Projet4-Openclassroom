@@ -125,10 +125,16 @@ label{
     flex-wrap: wrap;
     background-color: rgba(255, 255, 255, 0.9);
     justify-content: center;
+    text-align: center;
 }
 
 .accountPseudo{
     margin-top: 50px;
+}
+
+.infoAvatar{
+    font-family: 'Kaushan Script', cursive;
+    font-size: 0.3em; 
 }
 
 
