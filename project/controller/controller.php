@@ -67,20 +67,26 @@
         $accountManager = new AccountManager();
         $request = $accountManager->postConnectionDb();
         $result = $request->fetch();
-        // Password Verify
-        $resultVerify = password_verify($password,$result['pass']);
-        // Control and Session creation
-        if($resultVerify) {
-            $_SESSION['id'] = $result['idAccount'];
-            $_SESSION['pseudo'] = $result['pseudo'];
-            $_SESSION['avatar'] = $result['avatar'];
-            $_SESSION['email'] = $result['eMail'];
+        // Contol statue
+        if($result['accountStatue'] === "Supp") {
+            throw new Exception('Compte Banni');
         }
-        // Error
-        else{
-            throw new Exception('Le mot de passe ne correspond pas');
-        }
-        require('project/view/frontend/indexView.php');        
+        else {
+            // Password Verify
+            $resultVerify = password_verify($password,$result['pass']);
+            // Control and Session creation
+            if($resultVerify) {
+                $_SESSION['id'] = $result['idAccount'];
+                $_SESSION['pseudo'] = $result['pseudo'];
+                $_SESSION['avatar'] = $result['avatar'];
+                $_SESSION['email'] = $result['eMail'];
+            }
+            // Error
+            else{
+                throw new Exception('Le mot de passe ne correspond pas');
+            }
+            require('project/view/frontend/indexView.php');
+        }        
     }
 
     //Unconection Session
