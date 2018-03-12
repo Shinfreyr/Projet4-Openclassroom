@@ -102,6 +102,11 @@ h3{
     text-align: center;
 }
 
+.commentBtn{
+    margin: 50px 0;
+    font-family: 'Lato', sans-serif;
+}
+
 .alert{
     float: right;
     color: red;
