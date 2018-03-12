@@ -38,7 +38,7 @@
         }
 
         //Data Base Account Management
-        function postAccountManagement(){
+        function requestAccountManagement(){
             //Email
             $email = $_SESSION['email'];
             // Data Base Connection

@@ -8,9 +8,10 @@
 <?php
 
     while ($db = $request->fetch()) {
-        echo    '<div class="accountManagement">
-                    <img src="project/public/images/' . htmlspecialchars($db['avatar']) . '" />
-                    <form enctype="multipart/form-data" action="index.php?action=upload" method="post" class="col-12">
+        echo    '<div class="accountManagement">'
+                    //Avatar Modification
+                    .'<img src="project/public/images/' . htmlspecialchars($db['avatar']) . '" />
+                    <form enctype="multipart/form-data" action="index.php?action=uploadAvatar" method="post" class="col-12">
                         <fieldset>
                             <legend><h2>Avatar: <span class="infoAvatar"> (800x800 pixel & 1Mo maximum) </span></h2></legend>
                             <p>
@@ -20,19 +21,21 @@
                                 <input type="submit" class="btn btn-info" name="submit" value="Uploader" />
                             </p>
                         </fieldset>
-                    </form>
-                    <h2 class="accountPseudo" >Pseudo: ' . htmlspecialchars($db['pseudo']) . '</h2>
-                    <button type="button" class="btn btn-info btn-lg btn-block">Modifier</button>
-                    <h2 class="accountPseudo" >Prénom: ' . htmlspecialchars($db['firstName']) . '</h2>
-                    <button type="button" class="btn btn-info btn-lg btn-block">Modifier</button>
-                    <h2 class="accountPseudo" >Nom: ' . htmlspecialchars($db['lastName']) . '</h2>
-                    <button type="button" class="btn btn-info btn-lg btn-block">Modifier</button>
-                    <h2 class="accountPseudo" >Email: ' . htmlspecialchars($db['eMail']) . '</h2>
-                    <button type="button" class="btn btn-info btn-lg btn-block">Modifier</button>
-                    <h2 class="accountPseudo" >Mot de Passe</h2>
-                    <button type="button" class="btn btn-info btn-lg btn-block">Modifier</button>
-                    
-
+                    </form>'
+                    //Pseudo info
+                    .'<h2 class="accountPseudo col-12" >Pseudo: ' . htmlspecialchars($db['pseudo']) . '</h2>'
+                    //Firstname Modification
+                    .'<h2 class="accountPseudo col-12" >Prénom: ' . htmlspecialchars($db['firstName']) . '</h2>
+                    <a type="button" href="index.php?action=accountModification" class="btn btn-info btn-lg btn-block">Modifier</a>'
+                    //Lastname Modification
+                    .'<h2 class="accountPseudo col-12" >Nom: ' . htmlspecialchars($db['lastName']) . '</h2>
+                    <a type="button" href="index.php?action=accountModification" class="btn btn-info btn-lg btn-block">Modifier</a>'
+                    //Email Modification
+                    .'<h2 class="accountPseudo col-12" >Email: ' . htmlspecialchars($db['eMail']) . '</h2>
+                    <a type="button" href="index.php?action=accountModification" class="btn btn-info btn-lg btn-block">Modifier</a>'
+                    //Password Modification
+                    .'<h2 class="accountPseudo col-12" >Mot de Passe</h2>
+                    <a type="button" href="index.php?action=accountModification" class="btn btn-info btn-lg btn-block">Modifier</a>
                 </div>';
     }
 

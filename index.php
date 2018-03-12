@@ -5,15 +5,15 @@
     //Require Controller ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     require('project/controller/controller.php');
 
-    //Visitor screen ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //Rooter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     try{
 
         if(isset($_GET['action']) && isset($_GET['idChapter'])) {
             //Chapter target Page +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            if($_GET['action'] == 'post' && $_GET['idChapter'] >0){
+            if($_GET['action'] === 'post' && $_GET['idChapter'] >0){
                 post();
             }
-            //Error
+            //Error ***************************************************************************************************
             else {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
@@ -21,70 +21,226 @@
         }
 
         elseif(isset($_GET['action']) && isset($_GET['db'])) {
-            //Data Base Inscription +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            if($_GET['action'] == 'inscription' && $_GET['db'] == 'ok') {
-                if($_POST['pseudo'] != "" && $_POST['email'] != "" && $_POST['password'] != "" && $_POST['passwordComp'] != "" && $_POST['checkHuman']) {
-                    if($_POST['password'] == $_POST['passwordComp'] && $_POST['checkHuman'] == "ok" && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                        inscriptionDb();
+            //Data Base Account +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            if($_GET['action'] === 'inscription' && $_GET['db'] === 'ok') {
+                //Data Base Inscription +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                if(isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['passwordComp']) && isset($_POST['checkHuman'])) {   
+                    if($_POST['pseudo'] !== "" && $_POST['email'] !== "" && $_POST['password'] !== "" && $_POST['passwordComp'] !== "" && $_POST['checkHuman']) {
+                        if($_POST['password'] === $_POST['passwordComp'] && $_POST['checkHuman'] === "ok" && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                            inscriptionDb();
+                        }
+                        //Error ***************************************************************************************
+                        else {
+                            throw new Exception('Champs Mot de Passe ou Email incorect');
+                        }
                     }
-                    //Error
+                    //Error *******************************************************************************************
                     else {
-                        throw new Exception('Champs Mot de Passe ou Email incorect');
+                        throw new Exception('Champs Obligatoire Manquant');
                     }
                 }
-                //Error
+                //Error ***********************************************************************************************
                 else {
-                    throw new Exception('Champs Obligatoire Manquant');
+                    throw new Exception('Retour variables inatendu');
                 }
             }
-            //Data Base Connection
-            elseif($_GET['action'] == 'connection' && $_GET['db'] == 'ok') {
-                if($_POST['emailConnect'] != "" && $_POST['passwordConnect'] != "" ) {
-                    connectionDb();
+            //Data Base Connection ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'connection' && $_GET['db'] === 'ok') {
+                if(isset($_POST['emailConnect']) && isset($_POST['passwordConnect'])) {    
+                    if($_POST['emailConnect'] !== "" && $_POST['passwordConnect'] !== "" ) {
+                        connectionDb();
+                    }
+                    //Error *******************************************************************************************
+                    else {
+                        throw new Exception('Erreur lors du remplissage d\'un champs');
+                    }
                 }
-                //Error
+                //Error ***********************************************************************************************
                 else {
-                    throw new Exception('Erreur lors du remplissage d\'un champs');
+                    throw new Exception('Retour variable intendu');
                 }
             }
-            
-            //Error
+            //Data Base Account Modification ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'accountModification' && $_GET['db'] == 'ok') {
+                if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['passwordComp'])) {
+                    // All field modification +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    if($_POST['firstName'] !== "" && $_POST['lastName'] !== "" && $_POST['email'] !== "" && $_POST['password'] !== "" && $_POST['passwordComp'] !== ""){
+                        if($_POST['password'] === $_POST['passwordComp'] && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                            modificationAccountDb();
+                        }
+                        //Error ***************************************************************************************
+                        else {
+                            throw new Exception('Champs Mot de Passe ou Email incorect');
+                        }
+                    }
+                    //Firstname, Lastname & Email modification +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['firstName'] !== "" && $_POST['lastName'] !== "" && $_POST['email'] !== "") {
+                        if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                            modificationNameEmailDb();
+                        }
+                        //Error ***************************************************************************************
+                        else {
+                            throw new Exception('Email incorect');
+                        }
+                    }
+                    //Firstname, Lastname & Password modification ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['firstName'] !== "" && $_POST['lastName'] !== "" &&  $_POST['password'] !== "" && $_POST['passwordComp'] !== "") {
+                        if($_POST['password'] === $_POST['passwordComp']) {
+                            modificationNamePassDb();
+                        }
+                        //Error ***************************************************************************************
+                        else {
+                            throw new Exception('Champs Mot de Passe incorect');
+                        }
+                    }
+                    //Firstname, Email & Password ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['firstName'] !== "" && $_POST['email'] !== "" && $_POST['password'] !== "" && $_POST['passwordComp'] !== "") {
+                        if($_POST['password'] === $_POST['passwordComp'] && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                            modificationFirstnameEmailPassDb();
+                        }
+                        //Error ***************************************************************************************
+                        else {
+                            throw new Exception('Champs Mot de Passe ou Email incorect');
+                        }
+                    }
+                    //Lastname, Email & Password modification ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['lastName'] !== "" && $_POST['email'] !== "" && $_POST['password'] !== "" && $_POST['passwordComp'] !== "") {
+                        if($_POST['password'] === $_POST['passwordComp'] && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                            modificationLastnameEmailPassDb();
+                        }
+                        //Error ***************************************************************************************
+                        else {
+                            throw new Exception('Champs Mot de Passe ou Email incorect');
+                        }
+                    }
+                    //Firstname & Lastname modification ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['firstName'] !== "" && $_POST['lastName'] !== "" ) {
+                        modificationNameDb();
+                    }
+                    //Firstname & Email modification +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['firstName'] !== "" && $_POST['email'] !== "") {
+                        if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {    
+                            modificationFirstmailEmailDb();
+                        }
+                        else {
+                            throw new Exception('Champs Email incorect');
+                        } 
+                    }
+                    //Firstname & Password modification ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['firstName'] !== "" && $_POST['password'] !== "" && $_POST['passwordComp'] !== ""){
+                        if($_POST['password'] === $_POST['passwordComp']) {
+                            modificationFirstnamePassDb();
+                        }
+                        //Error ***************************************************************************************
+                        else {
+                            throw new Exception('Champs Mot de Passe incorect');
+                        }
+                    }
+                    //Lastname & Email modification ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['lastName'] !== "" && $_POST['email'] !==""){
+                        if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {    
+                            modificationLastnameEmailDb();
+                        }
+                        //Error **************************************************************************************
+                        else {
+                            throw new Exception('Champs Email incorect');
+                        }
+                    }
+                    //Lastname & Password modification +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['lastName'] !== "" && $_POST['password'] !== "" && $_POST['passwordComp'] !== "") {
+                        if($_POST['password'] === $_POST['passwordComp']) {
+                            modificationLastnamePassDb();
+                        }
+                        //Error ***************************************************************************************
+                        else {
+                            throw new Exception('Champs Mot de Passe incorect');
+                        }
+                    }
+                    //Email & Password modification ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['email'] !== "" && $_POST['password'] !== "" && $_POST['passwordComp'] != "") {
+                        if($_POST['password'] === $_POST['passwordComp'] && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) { 
+                            modificationEmailPassDb();
+                        }
+                        //Error ***************************************************************************************
+                        else {
+                            throw new Exception('Champs Mot de Passe ou email incorect');
+                        }
+                    }
+                    //Firstname modification +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['firstName'] !== "") {
+                        modificationFirstnameDb();
+                    }
+                    //Lastname modification ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['lastName'] !== "") {
+                        modificationLastnameDb();
+                    }
+                    //Email Modification +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['email'] !== "") {
+                        if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                            modificationEmailDb();
+                        }
+                        //Error **************************************************************************************
+                        else {
+                            throw new Exception('Champs email incorect');
+                        }
+                    }
+                    //Password Modification ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    elseif($_POST['password'] !== "" && $_POST['passwordComp'] !== "") {
+                        if($_POST['password'] === $_POST['passwordComp']) {
+                            modificationPassDb();
+                        }
+                        //Error **************************************************************************************
+                        else {
+                            throw new Exception('Champs Password incorect');
+                        }
+                    }
+                }
+                //Error **********************************************************************************************
+                else {
+                    throw new Exception('Retour variable intendu');
+                }
+            }            
+            //Error ***************************************************************************************************
             else {
                 throw new Exception('Erreur de redirection');
             }
         }
 
         elseif(isset($_GET['action']) && isset($_GET['idComment'])){
-            //Comment Warning
-            if($_GET['action'] == 'alert'){
+            //Comment Warning ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            if($_GET['action'] === 'alert'){
                 alertComment();
             }
         }
 
         elseif(isset($_GET['action'])){
             //Chapters Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            if($_GET['action'] == 'chapter'){
+            if($_GET['action'] === 'chapter'){
                 chapter();
             }
             //Inscription Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] == 'inscription'){
+            elseif($_GET['action'] === 'inscription'){
                 inscription();
             }
             //Connection Page +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] == 'connection'){
+            elseif($_GET['action'] === 'connection'){
                 connection();
             }
             //Unconnection Page +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] == 'unconnection'){
+            elseif($_GET['action'] === 'unconnection'){
                 unconnection();
             }
             //Account Management ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] == 'account'){
+            elseif($_GET['action'] === 'account'){
                 accountManagement();
             }
             //Account Management Avatar Upload ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] == 'upload'){
+            elseif($_GET['action'] === 'uploadAvatar'){
                 avatarUpload();
+            }
+            //Account Management modification ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'accountModification'){
+                accountModification();
             }
             
         }
