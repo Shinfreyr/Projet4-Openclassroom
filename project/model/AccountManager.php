@@ -59,5 +59,56 @@
             return $request;
         }
 
+        //Data Base Control Email Update
+        function updateControl() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // All Chapters recuperation 
+            $request = $db->prepare('SELECT eMail FROM account WHERE eMail=?');
+            $request -> execute(array($_POST['email']));
+            return $request;
+        }
+        
+        //Data Base Firstname Accounr Management
+        function updateFirstname() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Recuperation 
+            $request = $db->prepare('UPDATE account SET firstName = ? WHERE idAccount = ?');
+            $request -> execute(array($_POST['firstName'], $_SESSION['id']));
+            return $request;
+        }
+
+        //Data Base Lastname Account Management
+        function updateLastname() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Recuperation 
+            $request = $db->prepare('UPDATE account SET lastName = ? WHERE idAccount = ?');
+            $request -> execute(array($_POST['lastName'], $_SESSION['id']));
+            return $request;
+        }
+
+        //Data Base Email Account Management
+        function updateEmail() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Recuperation 
+            $request = $db->prepare('UPDATE account SET eMail = ? WHERE idAccount = ?');
+            $request -> execute(array($_POST['email'], $_SESSION['id']));
+            return $request;
+        }
+
+        //Data Base Password Account Management
+        function updatePass() {
+            //Password Hash
+            $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Recuperation 
+            $request = $db->prepare('UPDATE account SET pass = ? WHERE idAccount = ?');
+            $request -> execute(array($password, $_SESSION['id']));
+            return $request;
+        }
 
     }

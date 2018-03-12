@@ -7,8 +7,8 @@
             // Data Base Connection
             $db=$this->dbConnect();
             // Last Chapters recuperation (5)
-            $requestCom = $db->prepare('SELECT comments.idComments, comments.contentComment, comments.dateComment, account.pseudo, account.avatar FROM comments INNER JOIN account ON comments.idAccount=account.idAccount WHERE idPost=?');
-            $requestCom -> execute(array($_GET['idChapter']));
+            $requestCom = $db->prepare('SELECT comments.idComments, comments.contentComment, comments.dateComment, account.pseudo, account.avatar FROM comments INNER JOIN account ON comments.idAccount=account.idAccount WHERE idPost=? AND statueComment!=?');
+            $requestCom -> execute(array($_GET['idChapter'],"Supp"));
             return $requestCom;
         }
 

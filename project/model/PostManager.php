@@ -17,7 +17,8 @@
             // Data Base Connection
             $db=$this->dbConnect();
             // All Chapters recuperation 
-            $request = $db->query('SELECT idPost, titlePost, contentPost, imagePost, datePost, postStatue, idAccount FROM posts ORDER BY idPost');
+            $request = $db->prepare('SELECT idPost, titlePost, contentPost, imagePost, datePost, postStatue, idAccount FROM posts WHERE postStatue!=? OR postStatue!=? ORDER BY idPost');
+            $request -> execute(array("Supp","Brou"));
             return $request;
         }
 

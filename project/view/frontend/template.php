@@ -56,12 +56,27 @@
                         </li>
                         <!-- Connection/Inscription Menu ++++++++++++++++++++++++++++++++ -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connexion/Inscription</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php 
+                                    if(!isset($_SESSION['pseudo'])) {
+                                        echo 'Connexion/Inscription';
+                                    }
+                                    else {
+                                        echo 'Déconnexion';
+                                    }
+                                ?>
+                            </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="index.php?action=connection">Connexion</a>
-                                <a class="dropdown-item" href="index.php?action=inscription">Inscription</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="index.php?action=unconnection">Déconnexion</a>
+                                <?php    
+                                    if(!isset($_SESSION['pseudo'])) {
+                                        echo 
+                                        '<a class="dropdown-item" href="index.php?action=connection">Connexion</a>
+                                        <a class="dropdown-item" href="index.php?action=inscription">Inscription</a>';
+                                    }                               
+                                    else {
+                                        echo '<a class="dropdown-item" href="index.php?action=unconnection">Déconnexion</a>';
+                                    }
+                                ?>
                             </div>
                         </li>
                         <!-- Welcome Account ++++++++++++++++++++++++++++++++++++++ -->

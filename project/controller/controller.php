@@ -85,7 +85,7 @@
             else{
                 throw new Exception('Le mot de passe ne correspond pas');
             }
-            require('project/view/frontend/indexView.php');
+            header("Refresh:0; index.php");
         }        
     }
 
@@ -192,79 +192,286 @@
         require('project/view/frontend/accountModificationView.php');
     }
 
-    //Data Base Account Modiffication
+    //Data Base Account all Modiffication
     function modificationAccountDb() {
-        echo "coucou ModificationAccountDb";
+        //Email
+        $email = $_POST['email'];
+        $accountManagerControl = new AccountManager();
+        $request= $accountManagerControl->updateControl();
+        $result = $request->fetch();
+        if($result['eMail'] === $email){
+            throw new Exception('Pseudo ou Email déja existant');
+        }        
+        // Insert Data Base
+        else{
+            $accountManager = new AccountManager();
+            $request = $accountManager->updateEmail();
+        }
+        //Firstname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateFirstname();
+        //Lastname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateLastname();
+        //Password
+        $accountManager = new AccountManager();
+        $request = $accountManager->updatePass();
+        
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
+        
     }
 
     //Data Base Account Fistname, Lastname & Email Modification
     function modificationNameEmailDb() {
-        echo "coucou ModificationNameEmailDb";
+        //Email
+        $email = $_POST['email'];
+        $accountManagerControl = new AccountManager();
+        $request= $accountManagerControl->updateControl();
+        $result = $request->fetch();
+        if($result['eMail'] === $email){
+            throw new Exception('Pseudo ou Email déja existant');
+        }
+        // Insert Data Base
+        else{
+            $accountManager = new AccountManager();
+            $request = $accountManager->updateEmail();
+        }
+        //Firstname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateFirstname();
+        //Lastname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateLastname();
+        
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     //Data Base Account Firstname, Lastname & Password Modification
     function modificationNamePassDb() {
-        echo "coucou modificationNamePassDb";
+        //Firstname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateFirstname();
+        //Lastname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateLastname();
+        //Password
+        $accountManager = new AccountManager();
+        $request = $accountManager->updatePass();
+        
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     //Data Base Account Firstname, Email & Password Modification
     function modificationFirstnameEmailPassDb() {
-        echo "coucou modificationFirstnameEmailPassDb";
+        //Email
+        $email = $_POST['email'];
+        $accountManagerControl = new AccountManager();
+        $request= $accountManagerControl->updateControl();
+        $result = $request->fetch();
+        if($result['eMail'] === $email){
+            throw new Exception('Pseudo ou Email déja existant');
+        }
+        // Insert Data Base
+        else{
+            $accountManager = new AccountManager();
+            $request = $accountManager->updateEmail();
+        }
+        //Firstname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateFirstname();
+        //Password
+        $accountManager = new AccountManager();
+        $request = $accountManager->updatePass();
+        
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     } 
 
     //Data Base Account Lastname, Email & Password Modification
     function modificationLastnameEmailPassDb() {
-        echo "coucou ModificationLastnameEmailPassDb";
+        //Email
+        $email = $_POST['email'];
+        $accountManagerControl = new AccountManager();
+        $request= $accountManagerControl->updateControl();
+        $result = $request->fetch();
+        if($result['eMail'] === $email){
+            throw new Exception('Pseudo ou Email déja existant');
+        }
+        // Insert Data Base
+        else{
+            $accountManager = new AccountManager();
+            $request = $accountManager->updateEmail();
+        }
+        //Lastname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateLastname();
+        //Password
+        $accountManager = new AccountManager();
+        $request = $accountManager->updatePass();
+
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     //Data Base Account Firstname & Lastname Modification
     function modificationNameDb() {
-        echo "coucou ModificationNameDb";
+        //Firstname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateFirstname();
+        //Lastname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateLastname();
+
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     //Data Base Account Firstname & Email Modification
     function modificationFirstmailEmailDb() {
-        echo "coucou modificationFirstmailEmailDb";
+        //Email
+        $email = $_POST['email'];
+        $accountManagerControl = new AccountManager();
+        $request= $accountManagerControl->updateControl();
+        $result = $request->fetch();
+        if($result['eMail'] === $email){
+            throw new Exception('Pseudo ou Email déja existant');
+        }
+        // Insert Data Base
+        else{
+            $accountManager = new AccountManager();
+            $request = $accountManager->updateEmail();
+        }
+        //Firstname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateFirstname();
+        
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     //Data Base Account Firstname & Password Modification
     function modificationFirstnamePassDb() {
-        echo "coucou modificationFirstnamePassDb";
+        //Firstname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateFirstname();
+        //Password
+        $accountManager = new AccountManager();
+        $request = $accountManager->updatePass();
+
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     //Data Base Accout Lastname & Email Modification
     function modificationLastnameEmailDb(){
-        echo "coucou ModificationLastnameEmailDb";
+        //Email
+        $email = $_POST['email'];
+        $accountManagerControl = new AccountManager();
+        $request= $accountManagerControl->updateControl();
+        $result = $request->fetch();
+        if($result['eMail'] === $email){
+            throw new Exception('Pseudo ou Email déja existant');
+        }
+        // Insert Data Base
+        else{
+            $accountManager = new AccountManager();
+            $request = $accountManager->updateEmail();
+        }
+        //Lastname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateLastname();
+
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     //Data Base Account Lastname & Password Modification
     function modificationLastnamePassDb() {
-        echo "coucou modificationLastnamePassDb";
+        //Lastname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateLastname();
+        //Password
+        $accountManager = new AccountManager();
+        $request = $accountManager->updatePass();
+
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     //Data Base Account Email & Password Modification
     function modificationEmailPassDb() {
-        echo "coucou modificationEmailPassDb";
+        //Email
+        $email = $_POST['email'];
+        $accountManagerControl = new AccountManager();
+        $request= $accountManagerControl->updateControl();
+        $result = $request->fetch();
+        if($result['eMail'] === $email){
+            throw new Exception('Pseudo ou Email déja existant');
+        }
+        // Insert Data Base
+        else{
+            $accountManager = new AccountManager();
+            $request = $accountManager->updateEmail();
+        }
+        //Password
+        $accountManager = new AccountManager();
+        $request = $accountManager->updatePass();
+
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     //Data Base Account Firstname Modification
     function modificationFirstnameDb() {
-        echo "coucou ModificationFirstnameDb";
+        //Firstname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateFirstname();
+
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     //Data Base Account Lastname Modification
     function modificationLastnameDb() {
-        echo "coucou modificationLastnameDb";
+        //Lastname
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateLastname();
+
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     //Data Base Account Email Modification
     function modificationEmailDb() {
-        echo "coucou modificationEmailDb";
+        //Email
+        $email = $_POST['email'];
+        $accountManagerControl = new AccountManager();
+        $request= $accountManagerControl->updateControl();
+        $result = $request->fetch();
+        if($result['eMail'] === $email){
+            throw new Exception('Pseudo ou Email déja existant');
+        }
+        // Insert Data Base
+        else{
+            $accountManager = new AccountManager();
+            $request = $accountManager->updateEmail();
+        }
+
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     //Data Base Account Password Modification
     function modificationPassDb() {
-        echo "coucou modificationPassDb";
+        //Password
+        $accountManager = new AccountManager();
+        $request = $accountManager->updatePass();
+
+        session_destroy();
+        require('project/view/frontend/updateReadyView.php');
     }
 
     
