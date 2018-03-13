@@ -5,11 +5,32 @@
     //Require Controller ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     require('project/controller/controller.php');
 
-    //Rooter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //Rooter +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     try{
-
-        if(isset($_GET['action']) && isset($_GET['idChapter'])) {
-            //Chapter target Page +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        //Comment Post +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        if(isset($_GET['action']) && isset($_GET['idChapter']) && isset($_GET['db'])) {    
+            if($_GET['action'] === 'comment' && $_GET['db'] === 'ok') {
+                if(isset($_POST['commentContent']) && isset($_POST['checkUserCondition'])) {
+                    if($_POST['commentContent'] !== "" && $_POST['checkUserCondition'] === "ok") {    
+                        postComment();
+                    }
+                    //Error ******************************************************************************************
+                    else {
+                        throw new Exception('Champs obligatoires manquants');
+                    }
+                }
+                //Error **********************************************************************************************
+                else {
+                    throw new Exception('Vous n\'avez pas pris connaissances des conditions d\'utilisations de l\'espace commentaire');
+                }
+            }
+            //Error **************************************************************************************************
+            else {
+                throw new Exception('Retour variables inatendu');
+            }
+        }
+        //Chapter target Page +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++     
+        elseif(isset($_GET['action']) && isset($_GET['idChapter'])) {            
             if($_GET['action'] === 'post' && $_GET['idChapter'] >0){
                 post();
             }
@@ -61,7 +82,7 @@
                 }
             }
             //Data Base Account Modification ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] === 'accountModification' && $_GET['db'] == 'ok') {
+            elseif($_GET['action'] === 'accountModification' && $_GET['db'] === 'ok') {
                 if(isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['passwordComp'])) {
                     // All field modification +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                     if($_POST['firstName'] !== "" && $_POST['lastName'] !== "" && $_POST['email'] !== "" && $_POST['password'] !== "" && $_POST['passwordComp'] !== ""){
@@ -199,7 +220,8 @@
                 else {
                     throw new Exception('Retour variable intendu');
                 }
-            }            
+            }
+
             //Error ***************************************************************************************************
             else {
                 throw new Exception('Erreur de redirection');
@@ -242,7 +264,18 @@
             elseif($_GET['action'] === 'accountModification'){
                 accountModification();
             }
-            
+            //User Condition +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'userCondition') {
+                userCondition();
+            }
+            //Admin Panem +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'admin') {
+                adminPanel();
+            } 
+            //Error ***************************************************************************************************
+            else {
+                throw new Exception('Erreur de redirection');
+            }            
         }
 
         //Index Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

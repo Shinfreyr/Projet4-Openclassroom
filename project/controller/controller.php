@@ -31,6 +31,18 @@
         require('project/view/frontend/postTargetView.php');
     }
 
+    // Data Base Post Comment
+    function postComment() {
+        $commentManager = new CommentManager();
+        $request = $commentManager->CommentPostDb();
+        header('Refresh:0; index.php?action=post&idChapter='.$_GET['idChapter']);
+    }
+
+    // User Condition View
+    function userCondition() {
+        require('project/view/frontend/userConditionView.php');
+    }
+
     // Inscription View
     function inscription(){
         require('project/view/frontend/inscriptionView.php');
@@ -80,6 +92,7 @@
                 $_SESSION['pseudo'] = $result['pseudo'];
                 $_SESSION['avatar'] = $result['avatar'];
                 $_SESSION['email'] = $result['eMail'];
+                $_SESSION['statue'] = $result['accountStatue'];
             }
             // Error
             else{
@@ -473,5 +486,12 @@
         session_destroy();
         require('project/view/frontend/updateReadyView.php');
     }
+
+    //Admin Panel
+    function adminPanel() {
+        require('project/view/backend/backendIndexView.php');
+    }
+
+    
 
     

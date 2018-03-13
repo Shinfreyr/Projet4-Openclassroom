@@ -32,7 +32,7 @@
 
         
     <!-- Template Content ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-    <body>
+    <body class="bodyFront">
 
         <!-- Navigation Menu +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <header class="container-fluid sticky-top">  
@@ -85,7 +85,7 @@
                                 echo    '<li class="nav-item">
                                             <a class="navbar-brand" href="index.php?action=account">
                                                 <img width="30" height="30" alt="" src="project/public/images/'. $_SESSION['avatar'] . '" /> 
-                                                Bonjours ' .  $_SESSION['pseudo'] . '!
+                                                Bonjour ' .  $_SESSION['pseudo'] . '!
                                             </a>
                                         </li>';
                             }
