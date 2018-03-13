@@ -169,3 +169,13 @@ footer p{
 .bodyBack{
     background-image: radial-gradient(circle at top right, grey, black);
 }
+
+/* Index Back +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.infoIndexBack{
+    display:flex;
+    margin: 0;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.8);
+    justify-content: center;
+}

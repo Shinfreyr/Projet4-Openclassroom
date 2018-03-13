@@ -31,4 +31,22 @@
             $request -> execute(array($_POST['commentContent'], "Post", $_SESSION['id'], $_GET['idChapter']));
             return $request;
         }
+
+        //Count Account
+        function countComment() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Recuperation 
+            $requestCom = $db->query('SELECT COUNT(*) FROM comments');
+            return $requestCom;
+        }
+
+        //Count Account
+        function countCommentAlert() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Recuperation 
+            $requestAlert = $db->query('SELECT COUNT(*) FROM comments WHERE alertComment>0');
+            return $requestAlert;
+        }
     }

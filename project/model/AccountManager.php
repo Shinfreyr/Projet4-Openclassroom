@@ -111,4 +111,13 @@
             return $request;
         }
 
+        //Count Account
+        function countAccount() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Recuperation 
+            $request = $db->query('SELECT COUNT(*) FROM account');
+            return $request;
+        }
+
     }

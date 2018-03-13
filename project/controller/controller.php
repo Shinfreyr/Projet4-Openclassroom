@@ -489,6 +489,15 @@
 
     //Admin Panel
     function adminPanel() {
+        $accountManager = new AccountManager();
+        $request = $accountManager->countAccount();
+
+        $commentManager = new CommentManager();
+        $requestCom = $commentManager->countComment();
+
+        $commentManagerAlert = new CommentManager();
+        $requestAlert = $commentManager->countCommentAlert();
+        
         require('project/view/backend/backendIndexView.php');
     }
 
