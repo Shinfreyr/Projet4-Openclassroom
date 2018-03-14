@@ -12,7 +12,7 @@
         echo '<h2 class="infoIndexBack" >' . htmlspecialchars($db[0]) . ' commentaires </h2>';
     }
     while ($db = $requestAlert->fetch()) {
-        echo '<h2 class="infoIndexBack" >et ' . htmlspecialchars($db[0]) . ' en cours de signalement. </h2>';
+        echo '<h2 class="infoIndexBack" >dont ' . htmlspecialchars($db[0]) . ' en cours de signalement. </h2>';
     }
 ?>
 

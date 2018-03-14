@@ -501,10 +501,25 @@
         require('project/view/backend/backendIndexView.php');
     }
 
-    //Admin Write Chapter
+    //Admin Write Chapter View
     function writeChapter() {
         require('project/view/backend/writeChapterView.php');
     }
+
+    //Admin Write Chapter DB
+    function writeChapterDb() {
+        $postManager= new PostManager();
+        $request= $postManager->chapterInsert();
+        require('project/view/backend/postInsertReady.php');
+    }
+
+    //Admin Modification Chapter View
+    function modificationChapter() {
+        $postManager= new PostManager();
+        $request= $postManager->getPosts();
+        require('project/view/backend/modificationChapterView.php');
+    }
+
 
     
 

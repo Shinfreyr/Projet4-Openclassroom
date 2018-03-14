@@ -31,4 +31,14 @@
             $request -> execute(array($_GET['idChapter']));
             return $request;
         }
+
+        // Chapter insert
+        function chapterInsert() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Chapters  Target recuperation 
+            $request = $db->prepare('INSERT INTO posts (titlePost, contentPost, imagePost, datePost, postStatue, idAccount) VALUE (?,?,?,NOW(),?,?)');
+            $request -> execute(array($_POST['chapterTitle'],$_POST['chapterContent'],"defautPost.jpg","Rough",$_SESSION['id']));
+            return $request;
+        }
     }

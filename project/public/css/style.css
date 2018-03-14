@@ -71,7 +71,8 @@ h3{
     justify-content: center;
 }
 
-.postContent{
+p{
+    width: 100%;
     margin: 0;
     padding: 20px 20px;
     font-family: 'Lato', sans-serif;
@@ -152,9 +153,12 @@ footer{
     text-align: center;
 }
 
-footer p{    
+.footer{
+    font-size: initial;
     margin:0;
+    background-color: initial;
 }
+
 
 /* Error ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 .error{
@@ -178,4 +182,26 @@ footer p{
     flex-wrap: wrap;
     background-color: rgba(255, 255, 255, 0.8);
     justify-content: center;
+}
+
+/* Modification Chapter View ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.publish{
+    color: rgb(21, 226, 21);
+}
+
+.publish:hover{
+    color: green;
+}
+
+.supp{
+    color: red;
+}
+
+.supp:hover{
+    color: darkred;
+}
+
+.modificationChapter{
+    margin-bottom: 50px;
 }

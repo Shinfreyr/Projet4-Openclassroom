@@ -32,7 +32,7 @@
             return $request;
         }
 
-        //Count Account
+        //Count Comment
         function countComment() {
             // Data Base Connection
             $db=$this->dbConnect();
@@ -41,7 +41,7 @@
             return $requestCom;
         }
 
-        //Count Account
+        //Count Alert
         function countCommentAlert() {
             // Data Base Connection
             $db=$this->dbConnect();

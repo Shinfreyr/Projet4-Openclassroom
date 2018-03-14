@@ -221,7 +221,21 @@
                     throw new Exception('Retour variable intendu');
                 }
             }
-
+            //Admin Write Chapter +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'writeChapter' && $_GET['db'] === 'ok' && $_SESSION['statue'] === 'Admin') {
+                if(isset($_POST['chapterTitle']) && isset($_POST['chapterContent']))    
+                    if($_POST['chapterTitle'] !== "" && $_POST['chapterContent'] !== "") {
+                        writeChapterDb();
+                    }
+                    //Error ******************************************************************************************
+                    else {
+                        throw new Exception('Champs Non Rempli');
+                    }
+                //Error ***********************************************************************************************
+                else {
+                    throw new Exception('Retour variable intendu');
+                }
+            }
             //Error ***************************************************************************************************
             else {
                 throw new Exception('Erreur de redirection');
@@ -275,6 +289,10 @@
             //Admin Panel Write New Chapter +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             elseif($_GET['action'] === 'writeChapter' && $_SESSION['statue'] === 'Admin') {
                 writeChapter();
+            }
+            //Admin Panel Modification Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'modificationChapter' && $_SESSION['statue'] === 'Admin') {
+                modificationChapter();
             }
             //Error ***************************************************************************************************
             else {

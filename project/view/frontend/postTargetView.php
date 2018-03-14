@@ -6,7 +6,7 @@
     while ($db = $request->fetch()){
         echo '<h1>' . htmlspecialchars($db['titlePost']) . '</h1>';
         echo '<div class="postTarget"><img class="imgPost col-12 col-md-8" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" />'
-        . '<p class="postContent col-12">' . htmlspecialchars($db['contentPost']) . '</p>' 
+        . $db['contentPost'] 
         . '<p class="postContent col-12">' . htmlspecialchars($db['datePost']) . '</p>' . '</div>';
         
     }
