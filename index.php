@@ -268,10 +268,14 @@
             elseif($_GET['action'] === 'userCondition') {
                 userCondition();
             }
-            //Admin Panem +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] === 'admin') {
+            //Admin Panel Index +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'admin' && $_SESSION['statue'] === 'Admin') {
                 adminPanel();
-            } 
+            }
+            //Admin Panel Write New Chapter +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'writeChapter' && $_SESSION['statue'] === 'Admin') {
+                writeChapter();
+            }
             //Error ***************************************************************************************************
             else {
                 throw new Exception('Erreur de redirection');

@@ -12,7 +12,7 @@
 		<!-- Meta Facebook +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->        
         <meta property="og:title" content="Jean Forteroche, Billet simple pour l'Alaska" />
         <meta property="og:url" content="" /><!-- !!!!!!!!!!!!!!!!!!!!! A remplir lors de la MeL -->
-        <meta property="og:site_name" content="WebAgency.fr" />
+        <meta property="og:site_name" content="Billet simple pour l'Alaska.fr" />
         <meta property="og:description" content="Un livre proche de ses lecteurs!" />
         <meta property="og:image" content="" /><!-- !!!!!!!!!!!!!!!!!!!!! A remplir lors de la MeL -->
 		<!-- Meta Twitter +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->             

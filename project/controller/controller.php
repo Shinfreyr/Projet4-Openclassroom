@@ -501,6 +501,11 @@
         require('project/view/backend/backendIndexView.php');
     }
 
+    //Admin Write Chapter
+    function writeChapter() {
+        require('project/view/backend/writeChapterView.php');
+    }
+
     
 
     
