@@ -28,11 +28,23 @@
             else {
                 throw new Exception('Retour variables inatendu');
             }
-        }
-        //Chapter target Page +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++     
+        }     
         elseif(isset($_GET['action']) && isset($_GET['idChapter'])) {            
-            if($_GET['action'] === 'post' && $_GET['idChapter'] >0){
+            //Chapter target Page +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            if($_GET['action'] === 'post' && $_GET['idChapter'] >0) {
                 post();
+            }
+            //Modification Target Chapter +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'modificationTargetChapter' && $_GET['idChapter'] >0) {
+                modificationTargetChapter();
+            }
+            //Publication Target Rough Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'publicationTargetChapter' && $_GET['idChapter'] >0) {
+                echo 'coucou publication';
+            }
+            //Publication Target Rough Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'supressionTargetChapter' && $_GET['idChapter'] >0) {
+                echo 'coucou supression';
             }
             //Error ***************************************************************************************************
             else {

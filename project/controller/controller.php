@@ -520,6 +520,11 @@
         require('project/view/backend/modificationChapterView.php');
     }
 
+    //Admin Modification Target Chapter View
+    function modificationTargetChapter() {
+        echo 'coucou';
+    }
+
 
     
 
