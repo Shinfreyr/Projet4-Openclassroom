@@ -35,7 +35,7 @@
                                 <a class="dropdown-item" href="index.php?action=writeChapter">Ecrire un nouvel Episode</a>
                                 <a class="dropdown-item" href="index.php?action=modificationChapter">Modifier un Episode</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Voir les Brouillons</a>
+                                <a class="dropdown-item" href="index.php?action=rough">Voir les Brouillons</a>
                             </div>
                         </li>
                         <li class="nav-item">

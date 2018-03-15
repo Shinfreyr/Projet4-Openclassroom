@@ -88,7 +88,7 @@ p{
 
 /* Comments postTargetViewc & User Condition  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-.commentPost,.infoUser{
+.commentPost{
     margin: 0;
     background-color: rgba(255, 255, 255, 0.9);
 }
@@ -103,6 +103,7 @@ p{
     font-family: 'Lato', sans-serif;
     font-size: 2em;
     text-align: center;
+    background-color: initial;
 }
 
 .commentBtn{
@@ -206,7 +207,20 @@ footer{
     margin-bottom: 50px;
 }
 
-/* Taille TinyMCE +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* Modification Target Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.imageChapter{
+    display:flex;
+    margin: 200px 0;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.9);
+    justify-content: center;
+    text-align: center;
+}
+
+.imageChapter p{
+    background-color: initial;
+}
 
 .tinyText{
     height: 500px;

@@ -121,7 +121,7 @@
         $request = $commentManager->warningComment();
         require('project/view/frontend/indexView.php');
     }
-
+    
     //Avatar Upload
     function avatarUpload(){ 
  
@@ -516,7 +516,7 @@
     //Admin Modification Chapter View
     function modificationChapter() {
         $postManager= new PostManager();
-        $request= $postManager->getPosts();
+        $request= $postManager->getPostsAdmin();
         require('project/view/backend/modificationChapterView.php');
     }
 
@@ -534,7 +534,104 @@
         require('project/view/backend/modificationChapterReady.php');
     }
 
+    //Admin Publication Target Chapter Data Base
+    function publicationTargetChapter() {
+        $postManager= new PostManager();
+        $request= $postManager->publicationModificationPost();
+        header("Refresh:0; index.php?action=modificationChapter");
+    }
 
+    //Admin Supression Target Chapter and linked Comments Data Base
+    function supressionTargetChapter() {
+        $postManager= new PostManager();
+        $request= $postManager->supressionLinkedCommentPost();
+
+        $postManager= new PostManager();
+        $request= $postManager->supressionChapterPost();
+        header("Refresh:0; index.php?action=modificationChapter");
+    }
+
+    //Admin Upload Image Chapter
+    function uploadImagePost() {
+        /************************************************************
+         * Setup
+         *************************************************************/
+        
+        define('TARGET', 'project/public/images/');    // Target Folder
+        define('MAX_SIZE', 1000000);    // Max Weight Files (octet)
+        define('WIDTH_MAX', 1920);    // Max Width Image (pix)
+        define('HEIGHT_MAX', 1080);    // Max Height Image (pix)
+        
+        // Data Table
+        $tabExt = array('jpg','gif','png','jpeg');    // Authorized extension
+        $infosImg = array();
+        
+        // Variables
+        $extension = '';
+        $message = '';
+        $nameImage = '';
+        
+        /************************************************************
+         * New Folder if doesn't exist
+         *************************************************************/
+        if( !is_dir(TARGET) ) {
+            if( !mkdir(TARGET, 0755) ) {
+                throw new Exception('Erreur : le répertoire cible ne peut-être créé ! Vérifiez que vous diposiez des droits suffisants pour le faire ou créez le manuellement !');
+            }
+        }
+        
+        /************************************************************
+         * Upload Script
+         *************************************************************/
+        // Verify Field
+         if(!empty($_POST)){
+            if( !empty($_FILES['file']['name'])){                
+                $extension  = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);        
+                if(in_array(strtolower($extension),$tabExt)){
+                    $infosImg = getimagesize($_FILES['file']['tmp_name']);        
+                    if($infosImg[2] >= 1 && $infosImg[2] <= 14){
+                        if(($infosImg[0] <= WIDTH_MAX) && ($infosImg[1] <= HEIGHT_MAX) && (filesize($_FILES['file']['tmp_name']) <= MAX_SIZE)){
+                            if(isset($_FILES['file']['error']) && UPLOAD_ERR_OK === $_FILES['file']['error']){
+                                $nameImage = md5(uniqid()) .'.'. $extension;        
+                                if(move_uploaded_file($_FILES['file']['tmp_name'], TARGET.$nameImage)){
+                                    $message = 'Upload réussi !';
+                                }
+                                else{
+                                    throw new Exception('Problème lors de l\'upload !');
+                                }
+                            }
+                            else{
+                                throw new Exception('Une erreur interne a empêché l\'uplaod de l\'image');
+                            }
+                        }
+                        else{
+                            throw new Exception('Erreur dans les dimensions de l\'image !');
+                        }
+                    }
+                    else{
+                        throw new Exception('Le fichier à uploader n\'est pas une image !');
+                    }
+                }
+                else{
+                    throw new Exception('L\'extension du fichier est incorrecte !');
+                }
+            }
+            else{
+                throw new Exception('Veuillez remplir le formulaire svp !');
+            }
+        }
+        
+        $postManager= new PostManager();
+        $request= $postManager->updateImageChapter($nameImage);
+        header("Refresh:0; index.php?action=modificationChapter");
+    }
+
+    // Chapter Rough
+    function roughChapter() {
+        $postManager= new PostManager();
+        $request= $postManager->getChapterRough();
+        require('project/view/backend/roughChapterView.php');
+    }
     
 
     

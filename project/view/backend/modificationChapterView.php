@@ -27,8 +27,9 @@
                     <?php 
                         if($db['postStatue'] === "Rough") { ?>
                             <a class="chapterLink col-12 col-md-4 align-self-center publish" href="index.php?action=publicationTargetChapter&idChapter=<?= htmlspecialchars($db['idPost']) ?>">Publier l'Episode</a> <?php
-                        } ?>
-                            <a class="chapterLink col-12 col-md-4 align-self-center supp" href="index.php?action=supressionTargetChapter&idChapter=<?= htmlspecialchars($db['idPost']) ?>">Supprimer l'Episode</a>
+                        }
+                    ?>
+                    <a class="chapterLink col-12 col-md-4 align-self-center supp" href="index.php?action=supressionTargetChapter&idChapter=<?= htmlspecialchars($db['idPost']) ?>">Supprimer l'Episode</a>
                 </div> <?php
             } ?>
         

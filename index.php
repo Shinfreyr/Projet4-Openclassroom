@@ -39,16 +39,20 @@
                 post();
             }
             //Modification Target Chapter +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] === 'modificationTargetChapter' && $_GET['idChapter'] >0) {
+            elseif($_GET['action'] === 'modificationTargetChapter' && $_GET['idChapter'] >0 && $_SESSION['statue'] === 'Admin') {
                 modificationTargetChapter();
             }
             //Publication Target Rough Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] === 'publicationTargetChapter' && $_GET['idChapter'] >0) {
-                echo 'coucou publication';
+            elseif($_GET['action'] === 'publicationTargetChapter' && $_GET['idChapter'] >0 && $_SESSION['statue'] === 'Admin') {
+                publicationTargetChapter();
             }
             //Suppression Target Rough Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] === 'supressionTargetChapter' && $_GET['idChapter'] >0) {
-                echo 'coucou supression';
+            elseif($_GET['action'] === 'supressionTargetChapter' && $_GET['idChapter'] >0 && $_SESSION['statue'] === 'Admin') {
+                supressionTargetChapter();
+            }
+            //Upload Image Target Chapter +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'uploadImagePost' && $_GET['idChapter'] >0 && $_SESSION['statue'] === 'Admin') {
+                uploadImagePost();
             }
             //Error ***************************************************************************************************
             else {
@@ -265,33 +269,33 @@
             }
         }
 
-        elseif(isset($_GET['action'])){
+        elseif(isset($_GET['action'])) {
             //Chapters Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            if($_GET['action'] === 'chapter'){
+            if($_GET['action'] === 'chapter') {
                 chapter();
             }
             //Inscription Page ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] === 'inscription'){
+            elseif($_GET['action'] === 'inscription') {
                 inscription();
             }
             //Connection Page +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] === 'connection'){
+            elseif($_GET['action'] === 'connection') {
                 connection();
             }
             //Unconnection Page +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] === 'unconnection'){
+            elseif($_GET['action'] === 'unconnection') {
                 unconnection();
             }
             //Account Management ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] === 'account'){
+            elseif($_GET['action'] === 'account') {
                 accountManagement();
             }
             //Account Management Avatar Upload ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] === 'uploadAvatar'){
+            elseif($_GET['action'] === 'uploadAvatar') {
                 avatarUpload();
             }
             //Account Management modification ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            elseif($_GET['action'] === 'accountModification'){
+            elseif($_GET['action'] === 'accountModification') {
                 accountModification();
             }
             //User Condition +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -309,6 +313,10 @@
             //Admin Panel Modification Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             elseif($_GET['action'] === 'modificationChapter' && $_SESSION['statue'] === 'Admin') {
                 modificationChapter();
+            }
+            //Admin Panel Rough +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'rough' && $_SESSION['statue'] === 'Admin') {
+                roughChapter();
             }
             //Error ***************************************************************************************************
             else {
