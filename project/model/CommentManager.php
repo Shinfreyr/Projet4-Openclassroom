@@ -49,4 +49,14 @@
             $requestAlert = $db->query('SELECT COUNT(*) FROM comments WHERE alertComment>0');
             return $requestAlert;
         }
+
+        //Alert Comment Management
+        function alertManagement(){
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Last Chapters recuperation (5)
+            $request = $db->prepare('SELECT comments.idComments, comments.contentComment, comments.alertComment, comments.dateComment, comments.idAccount, account.pseudo, account.avatar FROM comments INNER JOIN account ON comments.idAccount=account.idAccount WHERE alertComment>0 OR statueComment=?');
+            $request -> execute(array("Supp"));
+            return $request;
+        }
     }

@@ -185,22 +185,30 @@ footer{
     justify-content: center;
 }
 
-/* Modification Chapter View ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* Modification Chapter View and Gestion des Signalements ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-.publish{
+.publish,.resetAlert{
     color: rgb(21, 226, 21);
 }
 
-.publish:hover{
+.publish:hover,.resetAlert:hover{
     color: green;
 }
 
-.supp{
+.supp,.suppComment{
     color: red;
 }
 
-.supp:hover{
+.supp:hover,.suppComment:hover{
     color: darkred;
+}
+
+.banAccount{
+    color: orangered;
+}
+
+.banAccount:hover{
+    color: darkorange;
 }
 
 .modificationChapter{
@@ -225,3 +233,4 @@ footer{
 .tinyText{
     height: 500px;
 }
+

@@ -632,14 +632,6 @@
         $request= $postManager->getChapterRough();
         require('project/view/backend/roughChapterView.php');
     }
-
-    // Alert Management
-    function alertManagement() {
-        $commentManager = new CommentManager();
-        $request = $commentManager->alertManagement();
-        require('project/view/backend/alertManagementView.php');
-    }
-
     
 
     

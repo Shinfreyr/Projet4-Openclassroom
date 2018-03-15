@@ -54,13 +54,30 @@
             elseif($_GET['action'] === 'uploadImagePost' && $_GET['idChapter'] >0 && $_SESSION['statue'] === 'Admin') {
                 uploadImagePost();
             }
+            //Admin Suppress Comment           
+            elseif($_GET['action'] === 'suppComment' && $_SESSION['statue'] === 'Admin') {
+                echo 'coucou supp';
+            }
+            //Admin Reset count Alert
+            elseif($_GET['action'] === 'resetAlert' && $_SESSION['statue'] === 'Admin') {
+                echo 'coucou reset';
+            }
             //Error ***************************************************************************************************
             else {
                 throw new Exception('Aucun identifiant de billet envoyé');
+            }            
+        }
+        elseif(isset($_GET['action']) && isset($_GET['idAccount'])) {
+            //Admin Ban Account
+            if($_GET['action'] === 'banAccount' && $_SESSION['statue'] === 'Admin') {
+                echo 'coucou';
+            }
+            //Error ***************************************************************************************************
+            else {
+                throw new Exception('Retour variables inatendu');
             }
             
         }
-
         elseif(isset($_GET['action']) && isset($_GET['db'])) {
             //Data Base Account +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             if($_GET['action'] === 'inscription' && $_GET['db'] === 'ok') {
@@ -317,6 +334,10 @@
             //Admin Panel Rough +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             elseif($_GET['action'] === 'rough' && $_SESSION['statue'] === 'Admin') {
                 roughChapter();
+            }
+            //Admin Panel Alert Comment Management
+            elseif($_GET['action'] === 'alertManagement' && $_SESSION['statue'] === 'Admin') {
+                alertManagement();
             }
             //Error ***************************************************************************************************
             else {

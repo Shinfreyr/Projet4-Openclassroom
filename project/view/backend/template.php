@@ -39,7 +39,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Gestions des Signalements</a>
+                            <a class="nav-link" href="index.php?action=alertManagement">Gestions des Signalements</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Gestions des Comptes</a>
