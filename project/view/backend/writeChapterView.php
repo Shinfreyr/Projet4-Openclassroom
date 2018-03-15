@@ -10,7 +10,7 @@
         <input type="text" class="form-control" name="chapterTitle" id="chapterTitle" placeholder="Titre de l'épisode">
     </div>
     <div class="form-group">    
-        <textarea id="textarea" name="chapterContent" >Episode à écrire :</textarea>        
+        <textarea id="textarea" class="tinyText" name="chapterContent" >Episode à écrire :</textarea>        
     </div>
     <button type="submit" class="btn btn-primary">Sauvegarder en brouillon</button>
 </form>

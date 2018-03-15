@@ -41,4 +41,14 @@
             $request -> execute(array($_POST['chapterTitle'],$_POST['chapterContent'],"defautPost.jpg","Rough",$_SESSION['id']));
             return $request;
         }
+
+        // Update Chapter
+        function chapterModificationPost() {
+             // Data Base Connection
+             $db=$this->dbConnect();
+             // Chapters  Target recuperation 
+             $request = $db->prepare('UPDATE posts SET contentPost=? WHERE idPost=?');
+             $request -> execute(array($_POST['chapterContent'],$_GET['idChapter']));
+             return $request;
+        }
     }

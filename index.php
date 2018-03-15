@@ -7,8 +7,8 @@
 
     //Rooter +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     try{
-        //Comment Post +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         if(isset($_GET['action']) && isset($_GET['idChapter']) && isset($_GET['db'])) {    
+            //Comment Post +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             if($_GET['action'] === 'comment' && $_GET['db'] === 'ok') {
                 if(isset($_POST['commentContent']) && isset($_POST['checkUserCondition'])) {
                     if($_POST['commentContent'] !== "" && $_POST['checkUserCondition'] === "ok") {    
@@ -23,6 +23,10 @@
                 else {
                     throw new Exception('Vous n\'avez pas pris connaissances des conditions d\'utilisations de l\'espace commentaire');
                 }
+            }
+            //Admin Chapter Modification Post
+            elseif($_GET['action'] === 'modificationTargetChapter' && $_GET['db'] === 'ok' && $_SESSION['statue'] === 'Admin') {
+                modificationTargetChapterDb();
             }
             //Error **************************************************************************************************
             else {
@@ -42,7 +46,7 @@
             elseif($_GET['action'] === 'publicationTargetChapter' && $_GET['idChapter'] >0) {
                 echo 'coucou publication';
             }
-            //Publication Target Rough Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            //Suppression Target Rough Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             elseif($_GET['action'] === 'supressionTargetChapter' && $_GET['idChapter'] >0) {
                 echo 'coucou supression';
             }

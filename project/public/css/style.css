@@ -205,3 +205,9 @@ footer{
 .modificationChapter{
     margin-bottom: 50px;
 }
+
+/* Taille TinyMCE +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+.tinyText{
+    height: 500px;
+}

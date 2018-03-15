@@ -522,7 +522,16 @@
 
     //Admin Modification Target Chapter View
     function modificationTargetChapter() {
-        echo 'coucou';
+        $postManager= new PostManager();
+        $request= $postManager->getPost();
+        require('project/view/backend/modificationTargetChapterView.php');
+    }
+
+    //Admin Modification Target Chapter Data Base
+    function modificationTargetChapterDb() {
+        $postManager= new PostManager();
+        $request= $postManager->chapterModificationPost();
+        require('project/view/backend/modificationChapterReady.php');
     }
 
 
