@@ -73,7 +73,7 @@
         function updateFirstname() {
             // Data Base Connection
             $db=$this->dbConnect();
-            // Account Recuperation 
+            // Account Update 
             $request = $db->prepare('UPDATE account SET firstName = ? WHERE idAccount = ?');
             $request -> execute(array($_POST['firstName'], $_SESSION['id']));
             return $request;
@@ -83,7 +83,7 @@
         function updateLastname() {
             // Data Base Connection
             $db=$this->dbConnect();
-            // Account Recuperation 
+            // Account Update 
             $request = $db->prepare('UPDATE account SET lastName = ? WHERE idAccount = ?');
             $request -> execute(array($_POST['lastName'], $_SESSION['id']));
             return $request;
@@ -93,7 +93,7 @@
         function updateEmail() {
             // Data Base Connection
             $db=$this->dbConnect();
-            // Account Recuperation 
+            // Account Update 
             $request = $db->prepare('UPDATE account SET eMail = ? WHERE idAccount = ?');
             $request -> execute(array($_POST['email'], $_SESSION['id']));
             return $request;
@@ -105,7 +105,7 @@
             $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
             // Data Base Connection
             $db=$this->dbConnect();
-            // Account Recuperation 
+            // Account Update 
             $request = $db->prepare('UPDATE account SET pass = ? WHERE idAccount = ?');
             $request -> execute(array($password, $_SESSION['id']));
             return $request;
@@ -117,6 +117,26 @@
             $db=$this->dbConnect();
             // Account Recuperation 
             $request = $db->query('SELECT COUNT(*) FROM account');
+            return $request;
+        }
+
+        //Ban Account
+        function BanAccount() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Update 
+            $request = $db->prepare('UPDATE account SET accountStatue = ? WHERE idAccount = ?');
+            $request -> execute(array("Supp", $_GET['idAccount']));
+            return $request;
+        }
+
+        //Data Base Control Email Update
+        function accountStatueControl() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // All Chapters recuperation 
+            $request = $db->prepare('SELECT idAccount, accountStatue FROM account WHERE idAccount = ?');
+            $request -> execute(array($_GET['idAccount']));
             return $request;
         }
 

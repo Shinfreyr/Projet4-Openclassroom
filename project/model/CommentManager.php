@@ -55,8 +55,47 @@
             // Data Base Connection
             $db=$this->dbConnect();
             // Last Chapters recuperation (5)
-            $request = $db->prepare('SELECT comments.idComments, comments.contentComment, comments.alertComment, comments.dateComment, comments.idAccount, account.pseudo, account.avatar FROM comments INNER JOIN account ON comments.idAccount=account.idAccount WHERE alertComment>0 OR statueComment=?');
-            $request -> execute(array("Supp"));
+            $request = $db->query('SELECT comments.idComments, comments.contentComment, comments.alertComment, comments.dateComment, comments.idAccount, account.pseudo, account.avatar FROM comments INNER JOIN account ON comments.idAccount=account.idAccount WHERE alertComment>0 ORDER BY alertComment DESC');
             return $request;
+        }
+
+        // Supression Linked Comments of Supress Chapter
+        function supressionLinkedCommentPost() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Supress Comment 
+            $request = $db->prepare('DELETE FROM comments WHERE idPost=?');
+            $request -> execute(array($_GET['idChapter']));
+            return $request;
+        }
+
+        //Supress Linked Comments of Supress Account
+        function supressAccountLinkedCommentPost() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Supress Comment 
+            $request = $db->prepare('DELETE FROM comments WHERE idAccount=?');
+            $request -> execute(array($_GET['idAccount']));
+            return $request;
+        }
+
+        //Supress Alert Comment
+        function supressAlertComment() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Supress Comment 
+            $request = $db->prepare('DELETE FROM comments WHERE idComments=?');
+            $request -> execute(array($_GET['idComments']));
+            return $request;
+        }
+
+        //Warning Comment Increment
+        function resetCountAlertComment() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Last Chapters recuperation (5)
+            $requestCom = $db->prepare('UPDATE comments SET alertComment=?  WHERE idComments = ?');
+            $requestCom -> execute(array("0",$_GET['idComments']));
+            return $requestCom;
         }
     }

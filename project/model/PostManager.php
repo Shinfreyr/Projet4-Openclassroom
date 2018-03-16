@@ -72,16 +72,6 @@
             return $request;
         }
 
-        // Supression Linked Comments of Supress Chapter
-        function supressionLinkedCommentPost() {
-            // Data Base Connection
-            $db=$this->dbConnect();
-            // Supress Comment 
-            $request = $db->prepare('DELETE FROM comments Where idPost=?');
-            $request -> execute(array($_GET['idChapter']));
-            return $request;
-        }
-
         // Supress Target Chapter
         function supressionChapterPost() {
             // Data Base Connection

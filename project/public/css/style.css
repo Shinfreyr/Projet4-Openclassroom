@@ -195,7 +195,7 @@ footer{
     color: green;
 }
 
-.supp,.suppComment{
+.supp,.suppComment,.alertCount{
     color: red;
 }
 
@@ -213,6 +213,11 @@ footer{
 
 .modificationChapter{
     margin-bottom: 50px;
+}
+
+.alertCount{
+    margin-left: 20px;
+    font-size: 2em;
 }
 
 /* Modification Target Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */

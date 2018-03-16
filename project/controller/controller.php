@@ -231,7 +231,7 @@
         $request = $accountManager->updatePass();
         
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
         
     }
 
@@ -258,7 +258,7 @@
         $request = $accountManager->updateLastname();
         
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Data Base Account Firstname, Lastname & Password Modification
@@ -274,7 +274,7 @@
         $request = $accountManager->updatePass();
         
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Data Base Account Firstname, Email & Password Modification
@@ -300,7 +300,7 @@
         $request = $accountManager->updatePass();
         
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     } 
 
     //Data Base Account Lastname, Email & Password Modification
@@ -326,7 +326,7 @@
         $request = $accountManager->updatePass();
 
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Data Base Account Firstname & Lastname Modification
@@ -339,7 +339,7 @@
         $request = $accountManager->updateLastname();
 
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Data Base Account Firstname & Email Modification
@@ -362,7 +362,7 @@
         $request = $accountManager->updateFirstname();
         
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Data Base Account Firstname & Password Modification
@@ -375,7 +375,7 @@
         $request = $accountManager->updatePass();
 
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Data Base Accout Lastname & Email Modification
@@ -386,7 +386,7 @@
         $request= $accountManagerControl->updateControl();
         $result = $request->fetch();
         if($result['eMail'] === $email){
-            throw new Exception('Pseudo ou Email déja existant');
+            throw new Exception('Email déja existant');
         }
         // Insert Data Base
         else{
@@ -398,7 +398,7 @@
         $request = $accountManager->updateLastname();
 
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Data Base Account Lastname & Password Modification
@@ -411,7 +411,7 @@
         $request = $accountManager->updatePass();
 
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Data Base Account Email & Password Modification
@@ -434,7 +434,7 @@
         $request = $accountManager->updatePass();
 
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Data Base Account Firstname Modification
@@ -444,7 +444,7 @@
         $request = $accountManager->updateFirstname();
 
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Data Base Account Lastname Modification
@@ -454,7 +454,7 @@
         $request = $accountManager->updateLastname();
 
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Data Base Account Email Modification
@@ -474,7 +474,7 @@
         }
 
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Data Base Account Password Modification
@@ -484,7 +484,7 @@
         $request = $accountManager->updatePass();
 
         session_destroy();
-        require('project/view/frontend/updateReadyView.php');
+        header("Refresh:0; index.php");
     }
 
     //Admin Panel
@@ -543,8 +543,8 @@
 
     //Admin Supression Target Chapter and linked Comments Data Base
     function supressionTargetChapter() {
-        $postManager= new PostManager();
-        $request= $postManager->supressionLinkedCommentPost();
+        $commentManager= new CommentManager();
+        $request= $commentManager->supressionLinkedCommentPost();
 
         $postManager= new PostManager();
         $request= $postManager->supressionChapterPost();
@@ -639,7 +639,37 @@
         $request = $commentManager->alertManagement();
         require('project/view/backend/alertManagementView.php');
     }
-
     
+    //Ban Account
+    function banAccount() {
+        $accountManagerControl = new AccountManager();
+        $request = $accountManagerControl->accountStatueControl();
+        $result = $request->fetch();
+        if($result['accountStatue'] === 'Admin' ) {
+            throw new Exception('Vous ne Pouvez pas Bannir un Administrateur... Vous devez dabord lui baisser ses droits dans la gestion de compte !');
+        }
+        else {
+            $commentManager= new CommentManager();
+            $request= $commentManager->supressAccountLinkedCommentPost();
+        
+            $accountManager = new AccountManager();
+            $request = $accountManager->BanAccount();
+            require('project/view/backend/alertManagementView.php');
+        }
+    }
+    
+    //Suppress Comment
+    function suppComment() {
+        $commentManager= new CommentManager();
+        $request= $commentManager->supressAlertComment();
+        require('project/view/backend/alertManagementView.php');
+    }
+
+    //Reset Count Alert
+    function resetCountAlert() {
+        $commentManager= new CommentManager();
+        $request= $commentManager->resetCountAlertComment();
+        header("Refresh:0; index.php?action=alertManagement");
+    }
 
     
