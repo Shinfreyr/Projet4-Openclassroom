@@ -105,6 +105,9 @@ p{
     text-align: center;
     background-color: initial;
 }
+.infoUser{
+    background-color: rgba(255, 255, 255, 0.9);
+}
 
 .commentBtn{
     font-family: 'Lato', sans-serif;
@@ -168,6 +171,10 @@ footer{
 }
 
 /* Backend +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* Reset Back ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.h1BackView{
+    margin: 20% 0;
+}
 
 /* Body Back +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
@@ -185,29 +192,34 @@ footer{
     justify-content: center;
 }
 
-/* Modification Chapter View and Gestion des Signalements ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+/* Modification Chapter View, Alert Management and Admin Account Management ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.ban,.admin,.user{
+    margin:0;
+    color:initial;
+    background: initial;
+}
 
-.publish,.resetAlert{
+.publish,.resetAlert,.userStatue{
     color: rgb(21, 226, 21);
 }
 
-.publish:hover,.resetAlert:hover{
+.publish:hover,.resetAlert:hover,.userStatue:hover{
     color: green;
 }
 
-.supp,.suppComment,.alertCount{
+.supp,.suppComment,.alertCount,.downStatue{
     color: red;
 }
 
-.supp:hover,.suppComment:hover{
+.supp:hover,.suppComment:hover,.downStatue:hover{
     color: darkred;
 }
 
-.banAccount{
+.banAccount,.banStatue{
     color: orangered;
 }
 
-.banAccount:hover{
+.banAccount:hover,.banStatue:hover{
     color: darkorange;
 }
 
@@ -219,6 +231,19 @@ footer{
     margin-left: 20px;
     font-size: 2em;
 }
+
+.ban{
+    background-color: orangered;
+}
+
+.admin{
+    background-color: darkturquoise;
+}
+
+.user{
+    background-color: greenyellow;
+}
+
 
 /* Modification Target Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 

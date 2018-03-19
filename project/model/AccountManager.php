@@ -140,4 +140,43 @@
             return $request;
         }
 
+        //All Account View
+        function allAccountView() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // All Chapters recuperation 
+            $request = $db->prepare('SELECT idAccount, pseudo, firstName, lastName, eMail, avatar, accountStatue FROM account WHERE pseudo!=? ORDER BY pseudo');
+            $request -> execute(array("JeanF."));
+            return $request;
+        }
+
+        //Ban account up to User Statue
+        function updateUserStatue() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Update 
+            $request = $db->prepare('UPDATE account SET accountStatue = ? WHERE idAccount = ?');
+            $request -> execute(array("User", $_GET['idAccount']));
+            return $request;
+        }
+
+        //User account up to Admin Statue
+        function updateAdminStatue() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Update 
+            $request = $db->prepare('UPDATE account SET accountStatue = ? WHERE idAccount = ?');
+            $request -> execute(array("Admin", $_GET['idAccount']));
+            return $request;
+        }
+
+        //Admin account down to User Statue
+        function downgradeUserStatue() {
+            // Data Base Connection
+            $db=$this->dbConnect();
+            // Account Update 
+            $request = $db->prepare('UPDATE account SET accountStatue = ? WHERE idAccount = ?');
+            $request -> execute(array("User", $_GET['idAccount']));
+            return $request;
+        }
     }

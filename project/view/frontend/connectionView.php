@@ -15,7 +15,7 @@
     <label for="passwordConnect">Mot de Passe</label>
     <input type="password" class="form-control" name="passwordConnect" id="passwordConnect" placeholder="Votre Mot de Passe">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Connecter</button>
 </form>
 
 <?php

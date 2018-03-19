@@ -2,7 +2,7 @@
 <?php $title = "Modifier les Episodes, Billet simple pour l'Alaska"; ?>
 <?php ob_start(); ?>
 
-<h1>Modifier les Episodes</h1>
+<h1 class="h1BackView" >Modifier les Episodes</h1>
 
 <!-- Div All Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <div class="allChapters container-fluid raw">    

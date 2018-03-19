@@ -654,7 +654,12 @@
         
             $accountManager = new AccountManager();
             $request = $accountManager->BanAccount();
-            require('project/view/backend/alertManagementView.php');
+                if($_GET['action'] === 'banAccountStatue') {
+                    header("Refresh:0; index.php?action=adminAccountManagement");
+                }
+                else {
+                    require('project/view/backend/alertManagementView.php');
+                }                
         }
     }
     
@@ -670,6 +675,34 @@
         $commentManager= new CommentManager();
         $request= $commentManager->resetCountAlertComment();
         header("Refresh:0; index.php?action=alertManagement");
+    }
+
+    //Admin Account Management
+    function adminAccountManagement() {
+        $accountManager = new AccountManager();
+        $request = $accountManager->allAccountView();
+        require('project/view/backend/backAccountManagementView.php');
+    }
+
+    //Admin Account Management up Ban account to User
+    function userUpStatue() {
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateUserStatue();
+        header("Refresh:0; index.php?action=adminAccountManagement");
+    }
+
+    // Admin Account Management up User account to Admin
+    function adminUpStatue() {
+        $accountManager = new AccountManager();
+        $request = $accountManager->updateAdminStatue();
+        header("Refresh:0; index.php?action=adminAccountManagement");
+    }
+
+    // Admin Account Managemnt down Admin to User
+    function userDownStatue() {
+        $accountManager = new AccountManager();
+        $request = $accountManager->downgradeUserStatue();
+        header("Refresh:0; index.php?action=adminAccountManagement");
     }
 
     

@@ -2,7 +2,7 @@
 <?php $title = "Gestions des Signalements, Billet simple pour l'Alaska"; ?>
 <?php ob_start(); ?>
 
-<h1>Gestions des Signalements</h1>
+<h1 class="h1BackView" >Gestions des Signalements</h1>
 
 <?php
     while ($db = $request->fetch()){

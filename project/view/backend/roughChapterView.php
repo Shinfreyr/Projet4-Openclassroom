@@ -2,7 +2,7 @@
 <?php $title = "Tout les brouillons, Billet simple pour l'Alaska"; ?>
 <?php ob_start(); ?>
 
-<h1>Tout les brouillons</h1>
+<h1 class="h1BackView" >Tout les brouillons</h1>
 
 <div class="allChapters container-fluid raw">    
 

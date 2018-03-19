@@ -4,7 +4,7 @@
 
 //Post Content modification
     while ($db = $request->fetch()){
-        echo '<h1>' . htmlspecialchars($db['titlePost']) . '</h1>'
+        echo '<h1  class="h1BackView" >' . htmlspecialchars($db['titlePost']) . '</h1>'
         //Avatar Modification
         .'<div class="imageChapter">'    
             .'<img src="project/public/images/' .htmlspecialchars($db['imagePost']).'" />

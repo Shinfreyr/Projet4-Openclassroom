@@ -60,9 +60,21 @@
             }            
         }
         elseif(isset($_GET['action']) && isset($_GET['idAccount'])) {
-            //Admin Ban Account
-            if($_GET['action'] === 'banAccount' && $_SESSION['statue'] === 'Admin') {
+            //Admin Ban Account +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            if(($_GET['action'] === 'banAccount' || $_GET['action'] === 'banAccountStatue') && $_SESSION['statue'] === 'Admin') {
                 banAccount();
+            }
+            //Admin Deban +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'userUpStatue' && $_SESSION['statue'] === 'Admin') {
+                userUpStatue();
+            }
+            //Admin up User to Admin ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'adminUpStatue' && $_SESSION['statue'] === 'Admin') {
+                adminUpStatue();
+            }
+            //Admin down Admin to User ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            elseif($_GET['action'] === 'userDownStatue' && $_SESSION['statue'] === 'Admin') {
+                userDownStatue();
             }
             //Error ***************************************************************************************************
             else {
@@ -347,7 +359,7 @@
             }
             //Admin Panel Account Management ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             elseif($_GET['action'] === 'adminAccountManagement' && $_SESSION['statue'] === 'Admin') {
-                echo 'coucou';
+                adminAccountManagement();
             }
             //Error ***************************************************************************************************
             else {
