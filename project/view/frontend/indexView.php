@@ -11,8 +11,21 @@
         <h2 class="col-12">Le voyage d'une vie :</h2>
         <img class="infoImg col-12 col-md-5" src="project/public/images/billetSimple.jpg" />
         <h3 class="info col-12">
-            Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-            Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+        "Alors, vous rêvez? Vous attendez quoi ici? La neige?"
+        <br />        
+        Surpris en effet dans un rêve, il sursaute et s'en va, avec un étrange malaise dans la poitrine.
+        <br /> 
+        Elle, fixe éperdument l'horizon.
+        <br /> 
+        Elle tire de sa poche un vieux papier jauni, déchiré, froissé, racorni par les âges et le sert contre sa poitrine. 
+        Un vieux, très vieux papier qui vient du fond des temps.
+        <br /> 
+        Du fond de son enfance lorsque son père la prenait sur ses genoux et lui parlait d'un monde merveilleux..
+        <br />
+        <br />
+        Avec "Billet simple pour l'Alaska", l'auteur Jean Forteroche, vous invite à vivre la création d'un roman épisode par épisode.
+        <br />
+        Venez vivre en directe cette aventure et communiquez vos impression au fur et à mesure de vos lecture!"
         </h3>
     </div>
 
