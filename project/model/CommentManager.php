@@ -32,7 +32,7 @@
             $db=$this->dbConnect();
             // Account Insert 
             $request = $db->prepare('INSERT INTO comments (contentComment, dateComment, statueComment, idAccount, idPost) VALUES (?, NOW(), ?, ?, ?)');
-            $request -> execute(array($commentContent, "Post", $id, $idChapters));
+            $request -> execute(array($commentContent, "Post", $id, $idChapter));
             
             return $request;
         }

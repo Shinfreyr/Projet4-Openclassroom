@@ -38,12 +38,12 @@
         }
 
         // Chapter insert ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        function chapterInsert() {
+        function chapterInsert($chapterTitle,$chapterContent,$id) {
             // Data Base Connection
             $db=$this->dbConnect();
             // Chapters  Insert Chapter 
             $request = $db->prepare('INSERT INTO posts (titlePost, contentPost, imagePost, datePost, postStatue, idAccount) VALUE (?,?,?,NOW(),?,?)');
-            $request -> execute(array($_POST['chapterTitle'],$_POST['chapterContent'],"defautPost.jpg","Rough",$_SESSION['id']));
+            $request -> execute(array($chapterTitle,$chapterContent,"defautPost.jpg","Rough",$id));
             
             return $request;
         }
@@ -59,45 +59,45 @@
         }
 
         // Update Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        function chapterModificationPost() {
+        function chapterModificationPost($chapterContent,$idChapter) {
             // Data Base Connection
             $db=$this->dbConnect();
             // Chapters Update Content Post 
             $request = $db->prepare('UPDATE posts SET contentPost=? WHERE idPost=?');
-            $request -> execute(array($_POST['chapterContent'],$_GET['idChapter']));
+            $request -> execute(array($chapterContent,$idChapter));
             
             return $request;
         }
 
         // Update Statue Chapter +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        function publicationModificationPost() {
+        function publicationModificationPost($idChapter) {
             // Data Base Connection
             $db=$this->dbConnect();
             // Chapters Update Post Statue 
             $request = $db->prepare('UPDATE posts SET postStatue=? WHERE idPost=?');
-            $request -> execute(array("Post",$_GET['idChapter']));
+            $request -> execute(array("Post",$idChapter));
             
             return $request;
         }
 
         // Supress Target Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        function supressionChapterPost() {
+        function supressionChapterPost($idChapter) {
             // Data Base Connection
             $db=$this->dbConnect();
             // Supress Comment 
             $request = $db->prepare('DELETE FROM posts Where idPost=?');
-            $request -> execute(array($_GET['idChapter']));
+            $request -> execute(array($idChapter));
             
             return $request;
         }
 
         // Upload Image Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        function updateImageChapter($nameImage) {
+        function updateImageChapter($nameImage,$idChapter) {
             // Data Base Connection
             $db=$this->dbConnect();
             // Update Posts
             $request = $db->prepare('UPDATE posts SET imagePost=? WHERE idPost=?');
-            $request -> execute(array($nameImage,$_GET['idChapter']));
+            $request -> execute(array($nameImage,$idChapter));
             
             return $request;
         }

@@ -7,8 +7,10 @@
     require('project/controller/allUserController.php');
     require('project/controller/userConnectedController.php');
     require('project/controller/adminController.php');
+    
     //Rooter +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     try{
+        
         if(isset($_GET['action']) && isset($_GET['idChapter']) && isset($_GET['db'])) {    
 #All        //Comment Post +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             if($_GET['action'] === 'comment' && $_GET['db'] === 'ok') {

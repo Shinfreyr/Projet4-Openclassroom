@@ -7,15 +7,15 @@
 
 <!-- Connection Form +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <form action="index.php?action=connection&db=ok" id="connectionForm" method="post">
-  <div class="form-group">
-    <label for="emailConnect">Email</label>
-    <input type="email" class="form-control" name="emailConnect" id="emailConnect" aria-describedby="emailHelp" placeholder="Entrer votre email">
-  </div>
-  <div class="form-group">
-    <label for="passwordConnect">Mot de Passe</label>
-    <input type="password" class="form-control" name="passwordConnect" id="passwordConnect" placeholder="Votre Mot de Passe">
-  </div>
-  <button type="submit" class="btn btn-primary">Connecter</button>
+    <div class="form-group">
+        <label for="emailConnect">Email</label>
+        <input type="email" class="form-control" name="emailConnect" id="emailConnect" aria-describedby="emailHelp" placeholder="Entrer votre email">
+    </div>
+    <div class="form-group">
+        <label for="passwordConnect">Mot de Passe</label>
+        <input type="password" class="form-control" name="passwordConnect" id="passwordConnect" placeholder="Votre Mot de Passe">
+    </div>
+    <button type="submit" class="btn btn-primary">Connecter</button>
 </form>
 
 <?php

@@ -87,7 +87,6 @@ p{
 }
 
 /* Comments postTargetViewc & User Condition  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-
 .commentPost{
     margin: 0;
     background-color: rgba(255, 255, 255, 0.9);
@@ -119,7 +118,6 @@ p{
 }
 
 /* Inscription Form & Connection Form +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-
 #inscriptionForm,#connectionForm{
     background-color: rgba(255, 255, 255, 0.9);
 }
@@ -129,7 +127,6 @@ label{
 }
 
 /* Account Management ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-
 .accountManagement{
     display:flex;
     margin: 200px 0;
@@ -177,13 +174,11 @@ footer{
 }
 
 /* Body Back +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-
 .bodyBack{
     background-image: radial-gradient(circle at top right, grey, black);
 }
 
 /* Index Back +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-
 .infoIndexBack{
     display:flex;
     margin: 0;
@@ -246,7 +241,6 @@ footer{
 
 
 /* Modification Target Chapter ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-
 .imageChapter{
     display:flex;
     margin: 200px 0;

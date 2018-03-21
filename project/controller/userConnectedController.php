@@ -10,7 +10,7 @@
         $commentContent = htmlspecialchars($_POST['commentContent']);
         $id = htmlspecialchars($_SESSION['id']);
         $idChapter = htmlspecialchars($_GET['idChapter']);
-        
+            
         $commentManager = new CommentManager();
         $request = $commentManager->CommentPostDb($commentContent,$id,$idChapter);
         
@@ -70,6 +70,8 @@
         require('project/view/frontend/accountManagementView.php');
     }
 
+    //Account Modification +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
     //Avatar Upload +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     function avatarUpload() { 
  
@@ -90,7 +92,7 @@
         $extension = '';
         $message = '';
         $nameImage = '';
-        $id = $_SESSION['id'];
+        $id = htmlspecialchars($_SESSION['id']);
 
         /************************************************************
          * New Folder if doesn't exist

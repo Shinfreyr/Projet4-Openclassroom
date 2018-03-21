@@ -2,8 +2,10 @@
 <?php $title = "Gestions des Signalements, Billet simple pour l'Alaska"; ?>
 <?php ob_start(); ?>
 
+<!-- Title +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <h1 class="h1BackView" >Gestions des Signalements</h1>
 
+<!-- Content +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <?php
     while ($db = $request->fetch()){
         echo '<div class="commentPost"><h3 class="col-12"><img class="avatar col-2 " src="project/public/images/'.htmlspecialchars($db['avatar']).'" />' 
@@ -15,7 +17,6 @@
         . '<p class="commentContent">'. htmlspecialchars($db['contentComment']) . '</p>' 
         . '</div>';
     }
-
 
     $content = ob_get_clean();
     require('template.php');

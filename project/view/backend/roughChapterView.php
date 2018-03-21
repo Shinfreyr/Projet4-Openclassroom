@@ -2,12 +2,13 @@
 <?php $title = "Tout les brouillons, Billet simple pour l'Alaska"; ?>
 <?php ob_start(); ?>
 
+<!-- Title ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <h1 class="h1BackView" >Tout les brouillons</h1>
 
+<!-- Content ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <div class="allChapters container-fluid raw">    
 
-    <?php
-                
+    <?php                
         // All chapters view ++++++++++++++++++++++++++++++
         while ($db = $request->fetch()){ 
             echo '<img class="col-12 col-md-2" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" />'; ?>

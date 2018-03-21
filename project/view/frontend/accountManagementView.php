@@ -5,13 +5,13 @@
 <!-- Title ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <h1>Gestion de Compte</h1>
 
+<!-- Content ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <?php
     // Admin Link
     if($_SESSION['statue'] === 'Admin') {
        echo '<a type="button" href="index.php?action=admin" class="btn btn-info btn-lg btn-block">Accéder au panneau Admin</a>'; 
     }
 
-    // Content
     while ($db = $request->fetch()) {
         echo    '<div class="accountManagement">'
                     //Avatar Modification

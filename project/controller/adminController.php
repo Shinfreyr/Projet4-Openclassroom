@@ -26,8 +26,12 @@
 
     //Admin Write Chapter DB +++++++++++++++++++++++++++++++++++++++++++
     function writeChapterDb() {
+        $chapterTitle = htmlspecialchars($_POST['chapterTitle']);
+        $chapterContent = htmlspecialchars($_POST['chapterContent']);
+        $id = htmlspecialchars($_SESSION['id']);
+        
         $postManager= new PostManager();
-        $request= $postManager->chapterInsert();
+        $request= $postManager->chapterInsert($chapterTitle,$chapterContent,$id);
         
         require('project/view/backend/postInsertReady.php');
     }
@@ -50,16 +54,21 @@
 
     //Admin Modification Target Chapter Data Base ++++++++++++++++++++++
     function modificationTargetChapterDb() {
+        $chapterContent = htmlspecialchars($_POST['chapterContent']);
+        $idChapter = htmlspecialchars($_GET['idChapter']);
+        
         $postManager= new PostManager();
-        $request= $postManager->chapterModificationPost();
+        $request= $postManager->chapterModificationPost($chapterContent,$idChapter);
         
         require('project/view/backend/modificationChapterReady.php');
     }
 
     //Admin Publication Target Chapter Data Base ++++++++++++++++++++++++
     function publicationTargetChapter() {
+        $idChapter = htmlspecialchars($_GET['idChapter']);
+        
         $postManager= new PostManager();
-        $request= $postManager->publicationModificationPost();
+        $request= $postManager->publicationModificationPost($idChapter);
         
         header("Refresh:0; index.php?action=modificationChapter");
     }
@@ -72,7 +81,7 @@
         $request= $commentManager->supressionLinkedCommentPost($idChapter);
 
         $postManager= new PostManager();
-        $request= $postManager->supressionChapterPost();
+        $request= $postManager->supressionChapterPost($idChapter);
         
         header("Refresh:0; index.php?action=modificationChapter");
     }
@@ -96,6 +105,7 @@
         $extension = '';
         $message = '';
         $nameImage = '';
+        $idChapter = htmlspecialchars($_GET['idChapter']);
         
         /************************************************************
          * New Folder if doesn't exist
@@ -151,7 +161,7 @@
         }
         
         $postManager= new PostManager();
-        $request= $postManager->updateImageChapter($nameImage);
+        $request= $postManager->updateImageChapter($nameImage,$idChapter);
         
         header("Refresh:0; index.php?action=modificationChapter");
     }

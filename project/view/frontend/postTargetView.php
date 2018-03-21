@@ -4,14 +4,14 @@
 
     //Post Content
     while ($db = $request->fetch()){
+        // Title +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         echo '<h1>' . htmlspecialchars($db['titlePost']) . '</h1>';
+        // Content +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         echo '<div class="postTarget"><img class="imgPost col-12 col-md-8" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" />'
         . $db['contentPost'] 
         . '<p class="postContent col-12">' . htmlspecialchars($db['datePost']) . '</p>' . '</div>';
         
     }
-    
-
 ?>
 
 <!-- Commentary -->
@@ -36,22 +36,22 @@
     }
 
 
-// Comment Form ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-if(isset($_SESSION['pseudo'])){
-    echo    
-        '<h2 id="commentPostBtn" class="commentary" >Laissez un commentaire!</h2>
-        <form class="commentPost" action="index.php?action=comment&idChapter='.$_GET['idChapter'].'&db=ok" id="commentForm" method="post">
-            <div class="form-group">
-                <label for="commentContent">Votre Commentaire:</label>
-                <textarea class="form-control" name="commentContent" id="commentContent" rows="3"></textarea>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" name="checkUserCondition" id="checkUserCondition" value="ok">
-                <label class="form-check-label" for="checkUserCondition">J\'ai pris connaissance de la <a href="index.php?action=userCondition">charte d\'utilisation</a> de l\'espace commentaire</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Envoyer</button>
-        </form>';
-}
+    // Comment Form ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    if(isset($_SESSION['pseudo'])){
+        echo    
+            '<h2 id="commentPostBtn" class="commentary" >Laissez un commentaire!</h2>
+            <form class="commentPost" action="index.php?action=comment&idChapter='.$_GET['idChapter'].'&db=ok" id="commentForm" method="post">
+                <div class="form-group">
+                    <label for="commentContent">Votre Commentaire:</label>
+                    <textarea class="form-control" name="commentContent" id="commentContent" rows="3"></textarea>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="checkUserCondition" id="checkUserCondition" value="ok">
+                    <label class="form-check-label" for="checkUserCondition">J\'ai pris connaissance de la <a href="index.php?action=userCondition">charte d\'utilisation</a> de l\'espace commentaire</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>';
+    }
 
 
     //Content Index +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
