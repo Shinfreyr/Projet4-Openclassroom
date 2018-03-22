@@ -25,7 +25,7 @@
         <br />
         Avec "Billet simple pour l'Alaska", l'auteur Jean Forteroche, vous invite à vivre la création d'un roman épisode par épisode.
         <br />
-        Venez vivre en directe cette aventure et communiquez vos impression au fur et à mesure de vos lecture!"
+        Venez vivre en direct cette aventure et communiquez vos impressions au fur et à mesure de vos lectures!"
         </h3>
     </div>
 
@@ -37,7 +37,7 @@
             
             // Last chapters view ++++++++++++++++++++++++++++++
             while ($db = $request->fetch()){
-                echo '<img class="col-12 col-md-2" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" />' 
+                echo '<div class="imageGoogle col-12 col-md-2" ><img class="col-12" alt="Responsive image" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" /></div>' 
                 . '<h3 class="col-12 col-md-6 align-self-center">' .htmlspecialchars($db['titlePost']) . ' : ' 
                 . htmlspecialchars($db['datePost']) . '</h3>'
                 .'<a class="chapterLink col-12 col-md-4 align-self-center" href="index.php?action=post&idChapter='. htmlspecialchars($db['idPost']) .'">Voir l\'Episode</a>';
@@ -46,8 +46,6 @@
     </div>
 
 <?php
-
     $content = ob_get_clean();
-    require('template.php'); 
-    
+    require('template.php');    
 ?>

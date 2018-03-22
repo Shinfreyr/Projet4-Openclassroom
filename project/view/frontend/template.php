@@ -21,6 +21,8 @@
         <meta name="twitter:url" content="" /><!-- !!!!!!!!!!!!!!!!!!!!! A remplir lors de la MeL -->
         <meta name="twitter:descritpion" content="Un livre proche de ses lecteurs!" />
         <meta name="twitter:image" content="" /> <!-- !!!!!!!!!!!!!!!!!!!!! A remplir lors de la MeL -->
+        <!-- Fav Icon +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <link rel="icon" type="image/png" href="project/public/images/logo.png" />
         <!-- Stylesheet Bootstrap v4 ++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- Stylesheet Google Font Indie+Flower, Kaushan+Script and Lato +++++++++++ -->
@@ -48,7 +50,7 @@
                     <ul class="navbar-nav col align-self-end mr-auto">
                         <!-- Home ++++++++++++++++++++++++++++++++++++++++++ -->
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Home </a>
+                            <a class="nav-link" href="index.php">Accueil</a>
                         </li>
                         <!-- Chapters ++++++++++++++++++++++++++++++++++++++ -->
                         <li class="nav-item">
@@ -82,12 +84,13 @@
                         <!-- Welcome Account ++++++++++++++++++++++++++++++++++++++ -->
                         <?php
                             if(isset($_SESSION['pseudo'])){     
-                                echo    '<li class="nav-item">
-                                            <a class="navbar-brand" href="index.php?action=account">
-                                                <img width="30" height="30" alt="" src="project/public/images/'. $_SESSION['avatar'] . '" /> 
-                                                Bonjour ' .  $_SESSION['pseudo'] . '!
-                                            </a>
-                                        </li>';
+                                echo
+                                    '<li class="nav-item">
+                                        <a class="navbar-brand" href="index.php?action=account">
+                                            <img width="30" height="30" alt="" src="project/public/images/'. $_SESSION['avatar'] . '" /> 
+                                            Bonjour ' .  $_SESSION['pseudo'] . '!
+                                        </a>
+                                    </li>';
                             }
                         ?>
                     </ul>

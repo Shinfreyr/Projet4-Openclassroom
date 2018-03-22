@@ -77,5 +77,5 @@
         $commentManager = new CommentManager();
         $request = $commentManager->warningComment($idComment);
         
-        require('project/view/frontend/indexView.php');
+        header("Refresh:0; index.php");
     }
