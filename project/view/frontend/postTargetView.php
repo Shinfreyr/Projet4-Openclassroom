@@ -7,7 +7,7 @@
         // Title +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         echo '<h1>' . htmlspecialchars($db['titlePost']) . '</h1>';
         // Content +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        echo '<div class="postTarget"><img class="imgPost col-12 col-md-8" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" />'
+        echo '<div class="postTarget"><div class="col-12 col-md-8 imageGoogleTarget" ><img class="imgPost col-12" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" alt="Image du chapitre" /></div>'
         . $db['contentPost'] 
         . '<p class="postContent col-12">' . htmlspecialchars($db['datePost']) . '</p>' . '</div>';
         
@@ -27,7 +27,7 @@
 
 
     while ($dbCom = $requestCom->fetch()){
-        echo '<div class="commentPost"><h3 class="col-12"><img class="avatar col-2 " src="project/public/images/'.htmlspecialchars($dbCom['avatar']).'" />' 
+        echo '<div class="commentPost"><h3 class="col-12"><img class="avatar col-2 " src="project/public/images/'.htmlspecialchars($dbCom['avatar']).'" alt="Image du chapitre" />' 
         . '<span class="col-7">' . htmlspecialchars($dbCom['pseudo']) . '</span>' 
         . '<span class="date col-3">' . htmlspecialchars($dbCom['dateComment']) . '</span></h3>'
         . '<a class="alert" href="index.php?action=alert&idComment='.htmlspecialchars($dbCom['idComments']).'">&Delta;Signaler</a>' 

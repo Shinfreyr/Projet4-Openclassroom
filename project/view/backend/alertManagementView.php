@@ -8,7 +8,7 @@
 <!-- Content +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 <?php
     while ($db = $request->fetch()){
-        echo '<div class="commentPost"><h3 class="col-12"><img class="avatar col-2 " src="project/public/images/'.htmlspecialchars($db['avatar']).'" />' 
+        echo '<div class="commentPost"><h3 class="col-12"><img class="avatar col-2 " src="project/public/images/'.htmlspecialchars($db['avatar']).'" alt="Avatar" />' 
         . '<span class="col-7">' . htmlspecialchars($db['pseudo']) . '</span>' 
         . '<span class="date col-3">' . htmlspecialchars($db['dateComment']) . '<span class="alertCount"> ' .htmlspecialchars($db['alertComment']) .' signalements</span></span></h3>'
         . '<a class="chapterLink col-12 col-md-4 align-self-center banAccount" href="index.php?action=banAccount&idAccount='.htmlspecialchars($db['idAccount']).'">Bannir le compte</a>'

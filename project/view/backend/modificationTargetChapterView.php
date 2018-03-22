@@ -10,7 +10,7 @@ while ($db = $request->fetch()){
     //Post Content modification +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //Avatar Modification
     .'<div class="imageChapter">'    
-        .'<img src="project/public/images/' .htmlspecialchars($db['imagePost']).'" />
+        .'<img src="project/public/images/' .htmlspecialchars($db['imagePost']).'" alt="Image du chapitre" />
             <form enctype="multipart/form-data" action="index.php?action=uploadImagePost&idChapter='.htmlspecialchars($db['idPost']).'" method="post" class="col-12">
                 <fieldset>
                     <legend><h2>Image Episode: <span class="infoImagePost"> (1920x1080 pixel & 1Mo maximum) </span></h2></legend>

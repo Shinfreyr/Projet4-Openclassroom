@@ -18,7 +18,7 @@
         else {
             echo '<div class="allChapters container-fluid raw ban">';
         }
-            echo '<div class="col-12 col-md-2 imageGoogle" ><img class="col-12" src="project/public/images/'.htmlspecialchars($db['avatar']).'" /></div>'; ?>
+            echo '<div class="col-12 col-md-2 imageGoogle" ><img class="col-12" src="project/public/images/'.htmlspecialchars($db['avatar']).'" alt="Avatar" /></div>'; ?>
             <h3 class="col-12 col-md-6 align-self-center"><?= htmlspecialchars($db['pseudo']) ?> : <?= htmlspecialchars($db['eMail']) ?> </h3>
             <?php 
                 if($db['accountStatue'] === "Admin") { 

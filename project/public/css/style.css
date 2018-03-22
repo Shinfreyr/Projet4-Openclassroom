@@ -67,6 +67,10 @@ h3{
     height: 7.77%;
 }
 
+.imageGoogleTarget{
+    height: 40.72%;
+}
+
 /* Target Chapter chapterTargetView ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 .postTarget{
     display: flex;

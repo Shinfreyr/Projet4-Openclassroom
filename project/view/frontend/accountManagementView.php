@@ -15,7 +15,7 @@
     while ($db = $request->fetch()) {
         echo    '<div class="accountManagement">'
                     //Avatar Modification
-                    .'<img src="project/public/images/' . htmlspecialchars($db['avatar']) . '" />
+                    .'<img src="project/public/images/' . htmlspecialchars($db['avatar']) . '" alt="Avatar" />
                     <form enctype="multipart/form-data" action="index.php?action=uploadAvatar" method="post" class="col-12">
                         <fieldset>
                             <legend><h2>Avatar: <span class="infoAvatar"> (800x800 pixel & 1Mo maximum) </span></h2></legend>

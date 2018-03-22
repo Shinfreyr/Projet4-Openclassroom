@@ -27,7 +27,10 @@
         
         $postManager = new PostManager();
         $request = $postManager->getPost();
-
+        $test=$request->fetch();        
+        if(!$test) {
+            throw new Exception('Chapitre non existant.');
+        }
         $commentManager = new CommentManager();
         $requestCom = $commentManager->getComments($idChapter);
 

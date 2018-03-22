@@ -11,7 +11,7 @@
     <?php                
         // All chapters view ++++++++++++++++++++++++++++++
         while ($db = $request->fetch()){ 
-            echo '<img class="col-12 col-md-2" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" />'; ?>
+            echo '<div class="col-12 col-md-2 imageGoogle" ><img class="col-12" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" alt="Image du chapitre" /></div>'; ?>
             <h3 class="col-12 col-md-6 align-self-center"><?= htmlspecialchars($db['titlePost']) ?> : <?= htmlspecialchars($db['datePost']) ?> </h3>
             <span class="align-self-center statue">Brouillon</span>
             <div class="col-12 modificationChapter" >

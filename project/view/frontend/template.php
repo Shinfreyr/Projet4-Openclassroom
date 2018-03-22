@@ -87,7 +87,7 @@
                                 echo
                                     '<li class="nav-item">
                                         <a class="navbar-brand" href="index.php?action=account">
-                                            <img width="30" height="30" alt="" src="project/public/images/'. $_SESSION['avatar'] . '" /> 
+                                            <img width="30" height="30" alt="" src="project/public/images/'. $_SESSION['avatar'] . '" alt="Avatar" /> 
                                             Bonjour ' .  $_SESSION['pseudo'] . '!
                                         </a>
                                     </li>';

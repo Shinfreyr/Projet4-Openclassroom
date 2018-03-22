@@ -16,7 +16,7 @@
             
             // All chapters view ++++++++++++++++++++++++++++++
             while ($db = $request->fetch()){
-                echo '<img class="col-12 col-md-2" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" />' 
+                echo '<div class="imageGoogle col-12 col-md-2" ><img class="col-12" src="project/public/images/'.htmlspecialchars($db['imagePost']).'" alt="Image du chapitre" /></div>' 
                 . '<h3 class="col-12 col-md-6 align-self-center">' .htmlspecialchars($db['titlePost']) . ' : ' 
                 . htmlspecialchars($db['datePost']) . '</h3>'
                 .'<a class="chapterLink col-12 col-md-4 align-self-center" href="index.php?action=post&idChapter='. htmlspecialchars($db['idPost']) .'">Voir l\'Episode</a>';
